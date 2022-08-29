@@ -1,3 +1,3 @@
-# Base_
+# Pangenome
 
-Templeate basic websites projects
+Pangenome analysis
