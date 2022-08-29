@@ -368,10 +368,33 @@ pre code {
 <div id="pangenome" class="section level1">
 <h1>Pangenome</h1>
 <p>Pangenome analysis</p>
+</div>
+<div id="conectarse" class="section level1">
+<h1>Conectarse</h1>
+<pre><code>ssh nombre@servidior
+password</code></pre>
+<p>{: .language-bash}</p>
+<p>Moverse a la carpeta</p>
+<pre><code>cd carpeta</code></pre>
+<p>{: .language-bash}</p>
 <div id="make-blast" class="section level2">
 <h2>Make blast</h2>
+<p>Concatenar archivos y correr BLAST.</p>
+<pre><code>cat Haydee/data/*.faa &gt; all-genomes.faa
+cd ../Blast/output-blast/
+makeblastdb -in ../../data/all-genomes.faa -dbtype nucl -out ../blast/database/all-genomes</code></pre>
+<p>{: .language-bash}</p>
+<pre><code>cat: /home/betterlab/Haydee/data/all-genomes.faa: input file is output file
+
+Adding sequences from FASTA; added 27811 sequences in 4.72535 seconds.</code></pre>
+<p>{: .output}</p>
 <pre><code>makeblastdb -in 2692915.4.faa -dbtype nucl -out ../blast/database/2692915.4</code></pre>
 <p>{: .language-bash}</p>
+<pre><code>blastn -db ../../data/all-genomes.faa -query ../database/all-genomes -outfmt &quot;6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore&quot;</code></pre>
+<p>{: .language-bash}</p>
+<pre><code>Argument &quot;query&quot;. File is not accessible:  `../database/2692915.4&#39;
+</code></pre>
+<p>{: .output}</p>
 </div>
 </div>
 
