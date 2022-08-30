@@ -45,7 +45,7 @@ makeblastdb -in 2692915.4.faa -dbtype nucl -out ../blast/database/2692915.4
 
 
 ~~~
-blastn -db ../../data/all-genomes.faa -query ../database/all-genomes -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+blastn -db ../database/all-genomes -query ../../data/all-genomes.faa -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 ~~~
 {: .language-bash}
 
