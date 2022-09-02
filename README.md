@@ -32,7 +32,6 @@ makeblastdb -in ~/Haydee/data/all-genomes.faa -dbtype prot -out ~/Haydee/blast/d
 
 ~~~
 cat: /home/betterlab/Haydee/data/all-genomes.faa: input file is output file
-
 Adding sequences from FASTA; added 27811 sequences in 4.72535 seconds.
 ~~~
 {: .output}
@@ -76,7 +75,7 @@ Explore de dataset.
 data <- read.delim("~/Pangenome/all-genomes.blast", header=FALSE)
 head(data)
 ~~~
-{: .language-bash
+{: .language-bash}
 
 ~~~
                    V1                     V2      V3 V4 V5 V6 V7 V8 V9 V10      V11 V12
