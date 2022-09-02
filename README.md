@@ -74,7 +74,7 @@ Explore de dataset.
 
 ~~~
 data <- read.delim("~/Pangenome/all-genomes.blast", header=FALSE)
-head(data
+head(data)
 ~~~
 {: .language-bash
 
