@@ -379,23 +379,51 @@ password</code></pre>
 <p>{: .language-bash}</p>
 <div id="make-blast" class="section level2">
 <h2>Make blast</h2>
-<p>Concatenar archivos y correr BLAST.</p>
+<p>Concatenar archivos y correr BLAST con la opción de <code>prot</code>
+porque son Pangenomas.</p>
 <pre><code>cat Haydee/data/*.faa &gt; all-genomes.faa
-cd ../Blast/output-blast/
-makeblastdb -in ../../data/all-genomes.faa -dbtype nucl -out ../blast/database/all-genomes</code></pre>
+cd ~/Haydee/blast/output-blast/
+makeblastdb -in ~/Haydee/data/all-genomes.faa -dbtype prot -out ~/Haydee/blast/database/all-genomes</code></pre>
 <p>{: .language-bash}</p>
 <pre><code>cat: /home/betterlab/Haydee/data/all-genomes.faa: input file is output file
-
 Adding sequences from FASTA; added 27811 sequences in 4.72535 seconds.</code></pre>
 <p>{: .output}</p>
-<pre><code>makeblastdb -in 2692915.4.faa -dbtype nucl -out ../blast/database/2692915.4</code></pre>
+<pre><code>#blastp blastp -query ~/Haydee/data/all-genomes.faa -db ~/Haydee/blast/all-genomes -outfmt &quot;6&quot; &gt; all-genomes.blast
+#Algunas de las posibles opciones: &quot;6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore&quot;
+#Para dejar corriendo en la terminal
+nohup blastp -query ~/Haydee/data/all-genomes.faa -db ~/Haydee/blast/all-genomes -outfmt &quot;6&quot; &gt; all-genomes.blast &amp;</code></pre>
 <p>{: .language-bash}</p>
-<pre><code>blastn -db ../../data/all-genomes.faa -query ../database/all-genomes -outfmt &quot;6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore&quot;</code></pre>
+<p>Copiar los archivos a local desde otra terminal. ~~~ scp <a href="mailto:servidor@servidor" class="email">servidor@servidor</a>:/home/betterlab/Haydee/blast/all-genomes.blast
+. ~~~ {: .language-bash}</p>
+<p>Default values for output: ~~~ -outfmt “6 qseqid sseqid pident length
+mismatch gapopen qstart qend sstart send evalue bitscore” ~~~ {:
+.language-bash}</p>
+<ul>
+<li>qseqid: Query Seq-id</li>
+<li>sseqid: Subject Seq-id</li>
+<li>pident: Percentage of identical matches</li>
+<li>length: Alignment length</li>
+<li>mismatch Number of mismatches</li>
+<li>gapopen: Number of gap openings</li>
+<li>qstart: Start of alignment in query</li>
+<li>qend: End of alignment in query</li>
+<li>sstart: Start of alignment in subject</li>
+<li>send: End if alignment in subject</li>
+<li>evalue: Expect value</li>
+<li>bitscore: Bit score</li>
+</ul>
+<p>Explore de dataset.</p>
+<pre><code>data &lt;- read.delim(&quot;~/Pangenome/all-genomes.blast&quot;, header=FALSE)
+head(data)</code></pre>
 <p>{: .language-bash}</p>
-<pre><code>Argument &quot;query&quot;. File is not accessible:  `../database/2692915.4&#39;
-</code></pre>
+<pre><code>                   V1                     V2      V3 V4 V5 V6 V7 V8 V9 V10      V11 V12
+1 fig|2692915.4.peg.1    fig|2692915.4.peg.1 100.000 88  0  0  1 88  1  88 1.45e-62 183
+2 fig|2692915.4.peg.1 fig|2692915.4.peg.7369  97.727 88  2  0  1 88  1  88 1.88e-61 180
+3 fig|2692915.4.peg.1 fig|2692915.4.peg.3260  79.310 87 18  0  1 87  1  87 6.97e-47 153
+4 fig|2692915.4.peg.1 fig|2692915.4.peg.1536  67.045 88 29  0  1 88  1  88 1.08e-41 132
+5 fig|2692915.4.peg.1 fig|2692915.4.peg.1153  64.045 89 30  1  1 87  1  89 4.03e-39 132
+6 fig|2692915.4.peg.1 fig|2692915.4.peg.5246 100.000 51  0  0  1 51  1  51 1.59e-33 108</code></pre>
 <p>{: .output}</p>
-<p>–</p>
 </div>
 </div>
 <div id="get_homologues" class="section level1">
@@ -1012,6 +1040,7 @@ parse_pangenome_matrix.pl -m alg_intersection/pangenome_matrix_t0.tab -s
 
 # EXIT : need at least 5 taxa to perform -s analysis</code></pre>
 <p>{: .output}</p>
+<p>=======</p>
 </div>
 
 
