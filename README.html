@@ -395,7 +395,623 @@ Adding sequences from FASTA; added 27811 sequences in 4.72535 seconds.</code></p
 <pre><code>Argument &quot;query&quot;. File is not accessible:  `../database/2692915.4&#39;
 </code></pre>
 <p>{: .output}</p>
+<p>–</p>
 </div>
+</div>
+<div id="get_homologues" class="section level1">
+<h1>Get_homologues</h1>
+<p>Crear carpeta con todos los archivos <code>.faa</code> (o .gbk) para
+después si es necesario añadir más archivos. El siguiente código corre
+get_homologues en todos los archivos de la carpeta con los archivos
+<code>.faa</code>.</p>
+<pre><code>(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ get_homologues.pl -d data_get -c</code></pre>
+<p>{: .language-bash}</p>
+<p>Se obtiene lo siguiente (tarda al rededor de 20min.).</p>
+<pre><code># /opt/anaconda3/envs/Pangenomics_Global/bin/get_homologues.pl -i 0 -d data_get -o 0 -X 0 -e 0 -f 0 -r 0 -t all -c 1 -z 0 -I 0 -m local -n 2 -M 0 -G 0 -p 0 -C 75 -S 1 -E 1e-05 -F 1.5 -N 0 -B 50 -b 0 -s 0 -D 0 -g 0 -a &#39;0&#39; -x 0 -R 0 -A 0 -P 0
+
+# version 28042022
+# results_directory=/home/alumno5/Haydee/data_get_homologues
+# parameters: MAXEVALUEBLASTSEARCH=0.01 MAXPFAMSEQS=250 BATCHSIZE=100 KEEPSCNDHSPS=1
+# diamond job:0
+
+# checking input files...
+# 2692915.4.faa 8802
+# 287862.3.faa 8982
+# 287863.3.faa 8982
+
+# 3 genomes, 26766 sequences
+
+# taxa considered = 3 sequences = 26766 residues = 7168829 MIN_BITSCORE_SIM = 18.7
+
+# mask=2692915_f0_alltaxa_algBDBH_e0_ (_algBDBH)
+
+# running makeblastdb with /home/alumno5/Haydee/data_get_homologues/2692915.4.faa.fasta
+
+# running makeblastdb with /home/alumno5/Haydee/data_get_homologues/287862.3.faa.fasta
+
+# running makeblastdb with /home/alumno5/Haydee/data_get_homologues/287863.3.faa.fasta
+
+# running BLAST searches ...
+# done
+
+# concatenating and sorting BLAST/DIAMOND results...
+# sorting _2692915.4.faa results (19MB)
+# sorting _287862.3.faa results (19MB)
+# sorting _287863.3.faa results (19MB)
+# done
+
+
+# parsing blast result! (/home/alumno5/Haydee/data_get_homologues/tmp/all.blast , 56MB)
+# parsing file finished
+
+# creating indexes, this might take some time (lines=7.70e+05) ...
+
+# construct_taxa_indexes: number of taxa found = 3
+# number of file addresses/BLAST queries = 2.7e+04
+
+# genome composition report (samples=6,permutations=6,seed=0)
+# genomic composition parameters: MIN_PERSEQID_HOM=0 MIN_COVERAGE_HOM=20 (set in lib/marfil_homology.pm)
+# genome order:
+# 0 2692915.4.faa
+# 1 287862.3.faa
+# 2 287863.3.faa
+
+## sample 0 (2692915.4.faa | 0,1,2,)
+# clustering inparalogues in 2692915.4.faa
+# 914 sequences
+# adding 2692915.4.faa: core=8204 pan=8204
+# clustering inparalogues in 287862.3.faa
+# 515 sequences
+# finding BDBHs between 2692915.4.faa and 287862.3.faa
+# 4644 sequences
+# finding homologs between 287862.3.faa and 2692915.4.faa
+# 6529 sequences
+# adding 287862.3.faa: core=4644 pan=10648
+# clustering inparalogues in 287863.3.faa
+# 515 sequences
+# finding BDBHs between 2692915.4.faa and 287863.3.faa
+# 4644 sequences
+# finding homologs between 287863.3.faa and 287862.3.faa
+# 8979 sequences
+# finding homologs between 287863.3.faa and 2692915.4.faa
+# 6529 sequences
+# adding 287863.3.faa: core=4644 pan=10651
+## sample 1 (287863.3.faa | 2,0,1,)
+# clustering inparalogues in 287863.3.faa
+# 515 sequences
+# adding 287863.3.faa: core=8685 pan=8685
+# clustering inparalogues in 2692915.4.faa
+# 914 sequences
+# finding BDBHs between 287863.3.faa and 2692915.4.faa
+# 4644 sequences
+# finding homologs between 2692915.4.faa and 287863.3.faa
+# 6496 sequences
+# adding 2692915.4.faa: core=4644 pan=10863
+# clustering inparalogues in 287862.3.faa
+# 515 sequences
+# finding BDBHs between 287863.3.faa and 287862.3.faa
+# 8679 sequences
+# finding homologs between 287862.3.faa and 2692915.4.faa
+# 6529 sequences
+# finding homologs between 287862.3.faa and 287863.3.faa
+# 8979 sequences
+# adding 287862.3.faa: core=4644 pan=10866
+## sample 2 (2692915.4.faa | 0,2,1,)
+# clustering inparalogues in 2692915.4.faa
+# 914 sequences
+# adding 2692915.4.faa: core=8204 pan=8204
+# clustering inparalogues in 287863.3.faa
+# 515 sequences
+# finding BDBHs between 2692915.4.faa and 287863.3.faa
+# 4644 sequences
+# finding homologs between 287863.3.faa and 2692915.4.faa
+# 6529 sequences
+# adding 287863.3.faa: core=4644 pan=10648
+# clustering inparalogues in 287862.3.faa
+# 515 sequences
+# finding BDBHs between 2692915.4.faa and 287862.3.faa
+# 4644 sequences
+# finding homologs between 287862.3.faa and 287863.3.faa
+# 8979 sequences
+# finding homologs between 287862.3.faa and 2692915.4.faa
+# 6529 sequences
+# adding 287862.3.faa: core=4644 pan=10651
+## sample 3 (2692915.4.faa | 0,1,2,)
+# clustering inparalogues in 2692915.4.faa
+# 914 sequences
+# adding 2692915.4.faa: core=8204 pan=8204
+# clustering inparalogues in 287862.3.faa
+# 515 sequences
+# finding BDBHs between 2692915.4.faa and 287862.3.faa
+# 4644 sequences
+# finding homologs between 287862.3.faa and 2692915.4.faa
+# 6529 sequences
+# adding 287862.3.faa: core=4644 pan=10648
+# clustering inparalogues in 287863.3.faa
+# 515 sequences
+# finding BDBHs between 2692915.4.faa and 287863.3.faa
+# 4644 sequences
+# finding homologs between 287863.3.faa and 287862.3.faa
+# 8979 sequences
+# finding homologs between 287863.3.faa and 2692915.4.faa
+# 6529 sequences
+# adding 287863.3.faa: core=4644 pan=10651
+## sample 4 (287862.3.faa | 1,0,2,)
+# clustering inparalogues in 287862.3.faa
+# 515 sequences
+# adding 287862.3.faa: core=8685 pan=8685
+# clustering inparalogues in 2692915.4.faa
+# 914 sequences
+# finding BDBHs between 287862.3.faa and 2692915.4.faa
+# 4644 sequences
+# finding homologs between 2692915.4.faa and 287862.3.faa
+# 6496 sequences
+# adding 2692915.4.faa: core=4644 pan=10863
+# clustering inparalogues in 287863.3.faa
+# 515 sequences
+# finding BDBHs between 287862.3.faa and 287863.3.faa
+# 8679 sequences
+# finding homologs between 287863.3.faa and 2692915.4.faa
+# 6529 sequences
+# finding homologs between 287863.3.faa and 287862.3.faa
+# 8979 sequences
+# adding 287863.3.faa: core=4644 pan=10866
+## sample 5 (287863.3.faa | 2,1,0,)
+# clustering inparalogues in 287863.3.faa
+# 515 sequences
+# adding 287863.3.faa: core=8685 pan=8685
+# clustering inparalogues in 287862.3.faa
+# 515 sequences
+# finding BDBHs between 287863.3.faa and 287862.3.faa
+# 8679 sequences
+# finding homologs between 287862.3.faa and 287863.3.faa
+# 8979 sequences
+# adding 287862.3.faa: core=8679 pan=8688
+# clustering inparalogues in 2692915.4.faa
+# 914 sequences
+# finding BDBHs between 287863.3.faa and 2692915.4.faa
+# 4644 sequences
+# finding homologs between 2692915.4.faa and 287862.3.faa
+# 6496 sequences
+# finding homologs between 2692915.4.faa and 287863.3.faa
+# 6496 sequences
+# adding 2692915.4.faa: core=4644 pan=10866
+
+# pan-genome (number of genes, can be plotted with plot_pancore_matrix.pl)
+# file=data_get_homologues/pan_genome_algBDBH.tab
+genomes mean    stddev  |       samples
+0       8444    240     |       8204    8685    8204    8204    8685    8685
+1       10393   769     |       10648   10863   10648   10648   10863   8688
+2       10758   108     |       10651   10866   10651   10651   10866   10866
+
+# core-genome (number of genes, can be plotted with plot_pancore_matrix.pl)
+# file=data_get_homologues/core_genome_algBDBH.tab
+genomes mean    stddev  |       samples
+0       8444    240     |       8204    8685    8204    8204    8685    8685
+1       5316    1504    |       4644    4644    4644    4644    4644    8679
+2       4644    0       |       4644    4644    4644    4644    4644    4644
+
+# clustering orthologous sequences
+
+# clustering inparalogues in 2692915.4.faa (reference)
+# 914 sequences
+
+# clustering inparalogues in 287862.3.faa
+# 515 sequences
+
+# finding BDBHs between 2692915.4.faa and 287862.3.faa
+# 4644 sequences
+
+# clustering inparalogues in 287863.3.faa
+# 515 sequences
+
+# finding BDBHs between 2692915.4.faa and 287863.3.faa
+# 4644 sequences
+
+# looking for valid ORF clusters (n_of_taxa=3)...
+
+
+# number_of_clusters = 4644
+# cluster_list = data_get_homologues/2692915_f0_alltaxa_algBDBH_e0_.cluster_list
+# cluster_directory = data_get_homologues/2692915_f0_alltaxa_algBDBH_e0_
+
+# runtime: 1159 wallclock secs (26.93 usr  0.80 sys + 1338.43 cusr  6.07 csys = 1372.23 CPU)
+# RAM use: 72.3 MB</code></pre>
+<p>{: .output}</p>
+<p>Correr el siguiente: ~~~ (Pangenomics_Global) <a href="mailto:alumno5@betterlabub" class="email">alumno5@betterlabub</a>:~/Haydee$ get_homologues.pl -d
+data_get -G ~~~ {: .language-bash}</p>
+<p>Se obtiene lo siguiente:</p>
+<pre><code># /opt/anaconda3/envs/Pangenomics_Global/bin/get_homologues.pl -i 0 -d data_get -o 0 -X 0 -e 0 -f 0 -r 0 -t all -c 0 -z 0 -I 0 -m local -n 2 -M 0 -G 1 -p 0 -C 75 -S 1 -E 1e-05 -F 1.5 -N 0 -B 50 -b 0 -s 0 -D 0 -g 0 -a &#39;0&#39; -x 0 -R 0 -A 0 -P 0
+
+# version 28042022
+# results_directory=/home/alumno5/Haydee/data_get_homologues
+# parameters: MAXEVALUEBLASTSEARCH=0.01 MAXPFAMSEQS=250 BATCHSIZE=100 KEEPSCNDHSPS=1
+# diamond job:0
+
+# checking input files...
+# 2692915.4.faa 8802
+# 287862.3.faa 8982
+# 287863.3.faa 8982
+
+# 3 genomes, 26766 sequences
+
+# taxa considered = 3 sequences = 26766 residues = 7168829 MIN_BITSCORE_SIM = 18.7
+
+# mask=2692915_f0_alltaxa_algCOG_e0_ (_algCOG)
+
+# skipped genome parsing (data_get_homologues/tmp/selected.genomes)
+
+
+# running BLAST searches ...
+# done
+
+
+# parsing file (COG)
+# parsing file (COG) finished
+
+# creating indexes, this might take some time (lines=7.70e+05) ...
+
+# construct_taxa_indexes: number of taxa found = 3
+# number of file addresses/BLAST queries = 2.7e+04
+
+# clustering orthologous sequences
+# checking lineage-specific expansions
+# making COGs
+# prunning COGs
+# done
+
+# looking for valid ORF clusters (n_of_taxa=3)...
+
+
+# number_of_clusters = 4641
+# cluster_list = data_get_homologues/2692915_f0_alltaxa_algCOG_e0_.cluster_list
+# cluster_directory = data_get_homologues/2692915_f0_alltaxa_algCOG_e0_
+
+# runtime: 24 wallclock secs ( 2.97 usr  0.11 sys +  6.74 cusr  1.95 csys = 11.77 CPU)
+# RAM use: 67.1 MB</code></pre>
+<p>{: .output}</p>
+<p>Correr el siguiente algoritmo de clustering.</p>
+<pre><code>(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ get_homologues.pl -d data_get -M</code></pre>
+<p>{: .language-bash}</p>
+<p>Da la siguiente salida.</p>
+<pre><code># /opt/anaconda3/envs/Pangenomics_Global/bin/get_homologues.pl -i 0 -d data_get -o 0 -X 0 -e 0 -f 0 -r 0 -t all -c 0 -z 0 -I 0 -m local -n 2 -M 1 -G 0 -p 0 -C 75 -S 1 -E 1e-05 -F 1.5 -N 0 -B 50 -b 0 -s 0 -D 0 -g 0 -a &#39;0&#39; -x 0 -R 0 -A 0 -P 0
+
+# version 28042022
+# results_directory=/home/alumno5/Haydee/data_get_homologues
+# parameters: MAXEVALUEBLASTSEARCH=0.01 MAXPFAMSEQS=250 BATCHSIZE=100 KEEPSCNDHSPS=1
+# diamond job:0
+
+# checking input files...
+# 2692915.4.faa 8802
+# 287862.3.faa 8982
+# 287863.3.faa 8982
+
+# 3 genomes, 26766 sequences
+
+# taxa considered = 3 sequences = 26766 residues = 7168829 MIN_BITSCORE_SIM = 18.7
+
+# mask=2692915_f0_alltaxa_algOMCL_e0_ (_algOMCL)
+
+# skipped genome parsing (data_get_homologues/tmp/selected.genomes)
+
+# skip BLAST searches and parsing
+
+# WARNING: please remove/rename results directory:
+# &#39;/home/alumno5/Haydee/data_get_homologues/&#39;
+# if you change the sequences in your .gbk/.faa files or want to re-run
+
+# creating indexes, this might take some time (lines=7.70e+05) ...
+
+# construct_taxa_indexes: number of taxa found = 3
+# number of file addresses/BLAST queries = 2.7e+04
+
+# clustering orthologous sequences
+
+# identifying orthologs between 2692915.4.faa and 287862.3.faa (0)
+# 5608 sequences
+
+# identifying orthologs between 2692915.4.faa and 287863.3.faa (0)
+# 5608 sequences
+
+# identifying inparalogs in 2692915.4.faa
+# 914 sequences
+
+# identifying orthologs between 287862.3.faa and 287863.3.faa (0)
+# 10032 sequences
+
+# identifying inparalogs in 287862.3.faa
+# 515 sequences
+
+# identifying inparalogs in 287863.3.faa
+# 515 sequences
+
+# running MCL (inflation=1.5) ...
+# running MCL finished
+
+# find_OMCL_clusters: parsing clusters (/home/alumno5/Haydee/data_get_homologues/tmp/all_ortho.mcl)
+
+
+# looking for valid ORF clusters (n_of_taxa=3)...
+
+
+# number_of_clusters = 4622
+# cluster_list = data_get_homologues/2692915_f0_alltaxa_algOMCL_e0_.cluster_list
+# cluster_directory = data_get_homologues/2692915_f0_alltaxa_algOMCL_e0_
+
+# runtime:  7 wallclock secs ( 4.22 usr  0.17 sys +  1.24 cusr  0.62 csys =  6.25 CPU)
+# RAM use: 85.3 MB</code></pre>
+<p>{: .output}</p>
+<p>Observar que da diferente número de clusters.</p>
+<p>Para listar los genomas de referencia ~~~ (Pangenomics_Global) <a href="mailto:alumno5@betterlabub" class="email">alumno5@betterlabub</a>:~/Haydee$ ls -d
+data_get_homologues/<em>alltaxa</em> ~~~ {: .language-bash}</p>
+<pre><code>data_get_homologues/2692915_f0_alltaxa_algBDBH_e0_
+data_get_homologues/2692915_f0_alltaxa_algBDBH_e0_.cluster_list
+data_get_homologues/2692915_f0_alltaxa_algCOG_e0_
+data_get_homologues/2692915_f0_alltaxa_algCOG_e0_.cluster_list
+data_get_homologues/2692915_f0_alltaxa_algOMCL_e0_
+data_get_homologues/2692915_f0_alltaxa_algOMCL_e0_.cluster_list</code></pre>
+<p>{: .output}</p>
+<p>Obtener la intersección entre los clusters.</p>
+<pre><code>(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ compare_clusters.pl -o alg_intersection -d \
+data_get_homologues/2692915_f0_alltaxa_algBDBH_e0_,\
+data_get_homologues/2692915_f0_alltaxa_algCOG_e0_,\
+data_get_homologues/2692915_f0_alltaxa_algOMCL_e0_</code></pre>
+<p>{: .language-bash}</p>
+<pre><code># /opt/anaconda3/envs/Pangenomics_Global/bin/compare_clusters.pl -d data_get_homologues/2692915_f0_alltaxa_algBDBH_e0_,data_get_homologues/2692915_f0_alltaxa_algCOG_e0_,data_get_homologues/2692915_f0_alltaxa_algOMCL_e0_ -o alg_intersection -n 0 -m 0 -t 0 -I  -r 0 -s 0 -x 0 -T 0
+
+# output directory: alg_intersection
+
+# number of input cluster directories = 3
+
+# parsing clusters in data_get_homologues/2692915_f0_alltaxa_algBDBH_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/2692915_f0_alltaxa_algBDBH_e0_.cluster_list)
+# number of clusters = 4644 duplicated = 0
+# parsing clusters in data_get_homologues/2692915_f0_alltaxa_algCOG_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/2692915_f0_alltaxa_algCOG_e0_.cluster_list)
+# number of clusters = 4641 duplicated = 0
+# parsing clusters in data_get_homologues/2692915_f0_alltaxa_algOMCL_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/2692915_f0_alltaxa_algOMCL_e0_.cluster_list)
+# number of clusters = 4622 duplicated = 0
+
+# duplicated list: alg_intersection/duplicated.cluster_list (please review)
+
+# intersection size = 4519 clusters
+
+# intersection list = alg_intersection/intersection_t0.cluster_list
+
+# input set: alg_intersection/2692915_f0_alltaxa_algBDBH_e0_.venn_t0.txt
+# input set: alg_intersection/2692915_f0_alltaxa_algCOG_e0_.venn_t0.txt
+# input set: alg_intersection/2692915_f0_alltaxa_algOMCL_e0_.venn_t0.txt
+
+# Venn diagram = alg_intersection/venn_t0.pdf alg_intersection/venn_t0.svg
+# Venn region file: alg_intersection/unique_2692915_f0_alltaxa_algBDBH_e0_.venn_t0.txt (53)
+# Venn region file: alg_intersection/unique_2692915_f0_alltaxa_algCOG_e0_.venn_t0.txt (100)
+# Venn region file: alg_intersection/unique_2692915_f0_alltaxa_algOMCL_e0_.venn_t0.txt (27)
+# Venn region file: alg_intersection/intersection_2692915_f0_alltaxa_algBDBH_e0__2692915_f0_alltaxa_algCOG_e0_.venn_t0.txt (9)
+# Venn region file: alg_intersection/intersection_2692915_f0_alltaxa_algBDBH_e0__2692915_f0_alltaxa_algOMCL_e0_.venn_t0.txt (63)
+# Venn region file: alg_intersection/intersection_2692915_f0_alltaxa_algCOG_e0__2692915_f0_alltaxa_algOMCL_e0_.venn_t0.txt (13)</code></pre>
+<p>{: .output}</p>
+<p>En el diagrama de Venn se puede observar los genes que están en el
+core (4519).</p>
+<div class="figure">
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTA0cHQiIGhlaWdodD0iNTA0cHQiIHZpZXdCb3g9IjAgMCA1MDQgNTA0IiB2ZXJzaW9uPSIxLjEiPgo8ZGVmcz4KPGc+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDAtMCI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gMS43OTY4NzUgLTEyLjM5MDYyNSBMIDExLjY4NzUgLTEyLjM5MDYyNSBMIDExLjY4NzUgMCBMIDEuNzk2ODc1IDAgWiBNIDIuNDY4NzUgLTExLjcxODc1IEwgMi40Njg3NSAtMC42NzE4NzUgTCAxMS4wMTU2MjUgLTAuNjcxODc1IEwgMTEuMDE1NjI1IC0xMS43MTg3NSBaIE0gMi40Njg3NSAtMTEuNzE4NzUgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgwLTEiPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDExLjA2MjUgLTMuNDg0Mzc1IEMgMTEuMDYyNSAtMi4zOTA2MjUgMTAuNjYwMTU2IC0xLjUzNTE1NiA5Ljg1OTM3NSAtMC45MjE4NzUgQyA5LjA1NDY4OCAtMC4zMDQ2ODggNy45Mzc1IDAgNi41IDAgTCAxLjQ4NDM3NSAwIEwgMS40ODQzNzUgLTEyLjM5MDYyNSBMIDUuOTg0Mzc1IC0xMi4zOTA2MjUgQyA4Ljg5MDYyNSAtMTIuMzkwNjI1IDEwLjM0Mzc1IC0xMS4zODI4MTIgMTAuMzQzNzUgLTkuMzc1IEMgMTAuMzQzNzUgLTguNjQ0NTMxIDEwLjEzMjgxMiAtOC4wMzEyNSA5LjcxODc1IC03LjUzMTI1IEMgOS4zMTI1IC03LjAzMTI1IDguNzM0Mzc1IC02LjY5NTMxMiA3Ljk4NDM3NSAtNi41MzEyNSBDIDguOTYwOTM4IC02LjQxNDA2MiA5LjcxODc1IC02LjA4NTkzOCAxMC4yNSAtNS41NDY4NzUgQyAxMC43ODkwNjIgLTUuMDAzOTA2IDExLjA2MjUgLTQuMzE2NDA2IDExLjA2MjUgLTMuNDg0Mzc1IFogTSA4LjY1NjI1IC05LjE3MTg3NSBDIDguNjU2MjUgLTkuODM1OTM4IDguNDI1NzgxIC0xMC4zMTY0MDYgNy45Njg3NSAtMTAuNjA5Mzc1IEMgNy41MDc4MTIgLTEwLjg5ODQzOCA2Ljg0NzY1NiAtMTEuMDQ2ODc1IDUuOTg0Mzc1IC0xMS4wNDY4NzUgTCAzLjE1NjI1IC0xMS4wNDY4NzUgTCAzLjE1NjI1IC03LjEyNSBMIDUuOTg0Mzc1IC03LjEyNSBDIDYuODc4OTA2IC03LjEyNSA3LjU0Njg3NSAtNy4yODkwNjIgNy45ODQzNzUgLTcuNjI1IEMgOC40Mjk2ODggLTcuOTU3MDMxIDguNjU2MjUgLTguNDcyNjU2IDguNjU2MjUgLTkuMTcxODc1IFogTSA5LjM1OTM3NSAtMy42MjUgQyA5LjM1OTM3NSAtNS4wODIwMzEgOC4zMzIwMzEgLTUuODEyNSA2LjI4MTI1IC01LjgxMjUgTCAzLjE1NjI1IC01LjgxMjUgTCAzLjE1NjI1IC0xLjM0Mzc1IEwgNi40MjE4NzUgLTEuMzQzNzUgQyA3LjQ0MTQwNiAtMS4zNDM3NSA4LjE4NzUgLTEuNTMxMjUgOC42NTYyNSAtMS45MDYyNSBDIDkuMTI1IC0yLjI4OTA2MiA5LjM1OTM3NSAtMi44NjMyODEgOS4zNTkzNzUgLTMuNjI1IFogTSA5LjM1OTM3NSAtMy42MjUgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgwLTIiPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDEyLjE0MDYyNSAtNi4zMTI1IEMgMTIuMTQwNjI1IC01LjAzOTA2MiAxMS44OTA2MjUgLTMuOTI1NzgxIDExLjM5MDYyNSAtMi45Njg3NSBDIDEwLjg5MDYyNSAtMi4wMDc4MTIgMTAuMTc5Njg4IC0xLjI3MzQzOCA5LjI2NTYyNSAtMC43NjU2MjUgQyA4LjM1OTM3NSAtMC4yNTM5MDYgNy4zMDQ2ODggMCA2LjEwOTM3NSAwIEwgMS40ODQzNzUgMCBMIDEuNDg0Mzc1IC0xMi4zOTA2MjUgTCA1LjU3ODEyNSAtMTIuMzkwNjI1IEMgNy42NzE4NzUgLTEyLjM5MDYyNSA5LjI4NTE1NiAtMTEuODYzMjgxIDEwLjQyMTg3NSAtMTAuODEyNSBDIDExLjU2NjQwNiAtOS43NTc4MTIgMTIuMTQwNjI1IC04LjI1NzgxMiAxMi4xNDA2MjUgLTYuMzEyNSBaIE0gMTAuNDUzMTI1IC02LjMxMjUgQyAxMC40NTMxMjUgLTcuODUxNTYyIDEwLjAzMTI1IC05LjAyMzQzOCA5LjE4NzUgLTkuODI4MTI1IEMgOC4zNDM3NSAtMTAuNjQwNjI1IDcuMTI1IC0xMS4wNDY4NzUgNS41MzEyNSAtMTEuMDQ2ODc1IEwgMy4xNTYyNSAtMTEuMDQ2ODc1IEwgMy4xNTYyNSAtMS4zNDM3NSBMIDUuOTIxODc1IC0xLjM0Mzc1IEMgNi44MjgxMjUgLTEuMzQzNzUgNy42MjUgLTEuNTM5MDYyIDguMzEyNSAtMS45Mzc1IEMgOSAtMi4zNDM3NSA5LjUyMzQzOCAtMi45MjE4NzUgOS44OTA2MjUgLTMuNjcxODc1IEMgMTAuMjY1NjI1IC00LjQyMTg3NSAxMC40NTMxMjUgLTUuMzAwNzgxIDEwLjQ1MzEyNSAtNi4zMTI1IFogTSAxMC40NTMxMjUgLTYuMzEyNSAiLz4KPC9zeW1ib2w+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDAtMyI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gOS44NTkzNzUgMCBMIDkuODU5Mzc1IC01LjczNDM3NSBMIDMuMTU2MjUgLTUuNzM0Mzc1IEwgMy4xNTYyNSAwIEwgMS40ODQzNzUgMCBMIDEuNDg0Mzc1IC0xMi4zOTA2MjUgTCAzLjE1NjI1IC0xMi4zOTA2MjUgTCAzLjE1NjI1IC03LjE0MDYyNSBMIDkuODU5Mzc1IC03LjE0MDYyNSBMIDkuODU5Mzc1IC0xMi4zOTA2MjUgTCAxMS41MzEyNSAtMTIuMzkwNjI1IEwgMTEuNTMxMjUgMCBaIE0gOS44NTkzNzUgMCAiLz4KPC9zeW1ib2w+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDAtNCI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gNi45Njg3NSAtMTEuMjAzMTI1IEMgNS41OTM3NSAtMTEuMjAzMTI1IDQuNTIzNDM4IC0xMC43NTc4MTIgMy43NjU2MjUgLTkuODc1IEMgMy4wMDM5MDYgLTguOTg4MjgxIDIuNjI1IC03Ljc4MTI1IDIuNjI1IC02LjI1IEMgMi42MjUgLTQuNzI2NTYyIDMuMDE5NTMxIC0zLjUwMzkwNiAzLjgxMjUgLTIuNTc4MTI1IEMgNC42MDE1NjIgLTEuNjYwMTU2IDUuNjc1NzgxIC0xLjIwMzEyNSA3LjAzMTI1IC0xLjIwMzEyNSBDIDguNzY5NTMxIC0xLjIwMzEyNSAxMC4wNzAzMTIgLTIuMDYyNSAxMC45Mzc1IC0zLjc4MTI1IEwgMTIuMzEyNSAtMy4wOTM3NSBDIDExLjgwMDc4MSAtMi4wMzEyNSAxMS4wODIwMzEgLTEuMjE4NzUgMTAuMTU2MjUgLTAuNjU2MjUgQyA5LjIzODI4MSAtMC4xMDE1NjIgOC4xNzE4NzUgMC4xNzE4NzUgNi45NTMxMjUgMC4xNzE4NzUgQyA1LjcwMzEyNSAwLjE3MTg3NSA0LjYxNzE4OCAtMC4wODIwMzEyIDMuNzAzMTI1IC0wLjU5Mzc1IEMgMi43OTY4NzUgLTEuMTEzMjgxIDIuMTAxNTYyIC0xLjg1MTU2MiAxLjYyNSAtMi44MTI1IEMgMS4xNTYyNSAtMy43ODEyNSAwLjkyMTg3NSAtNC45MjU3ODEgMC45MjE4NzUgLTYuMjUgQyAwLjkyMTg3NSAtOC4yMjY1NjIgMS40NTMxMjUgLTkuNzczNDM4IDIuNTE1NjI1IC0xMC44OTA2MjUgQyAzLjU3ODEyNSAtMTIuMDAzOTA2IDUuMDUwNzgxIC0xMi41NjI1IDYuOTM3NSAtMTIuNTYyNSBDIDguMjU3ODEyIC0xMi41NjI1IDkuMzYzMjgxIC0xMi4zMDA3ODEgMTAuMjUgLTExLjc4MTI1IEMgMTEuMTMyODEyIC0xMS4yNjk1MzEgMTEuNzg1MTU2IC0xMC41MDc4MTIgMTIuMjAzMTI1IC05LjUgTCAxMC42MDkzNzUgLTguOTY4NzUgQyAxMC4zMTY0MDYgLTkuNjk1MzEyIDkuODUxNTYyIC0xMC4yNSA5LjIxODc1IC0xMC42MjUgQyA4LjU4MjAzMSAtMTEuMDA3ODEyIDcuODMyMDMxIC0xMS4yMDMxMjUgNi45Njg3NSAtMTEuMjAzMTI1IFogTSA2Ljk2ODc1IC0xMS4yMDMxMjUgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgwLTUiPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDEzLjE0MDYyNSAtNi4yNSBDIDEzLjE0MDYyNSAtNC45NTcwMzEgMTIuODkwNjI1IC0zLjgyMDMxMiAxMi4zOTA2MjUgLTIuODQzNzUgQyAxMS44OTg0MzggLTEuODc1IDExLjE5MTQwNiAtMS4xMjg5MDYgMTAuMjY1NjI1IC0wLjYwOTM3NSBDIDkuMzM1OTM4IC0wLjA4NTkzNzUgOC4yNDIxODggMC4xNzE4NzUgNi45ODQzNzUgMC4xNzE4NzUgQyA1LjcxMDkzOCAwLjE3MTg3NSA0LjYxMzI4MSAtMC4wODIwMzEyIDMuNjg3NSAtMC41OTM3NSBDIDIuNzY5NTMxIC0xLjExMzI4MSAyLjA2NjQwNiAtMS44NTkzNzUgMS41NzgxMjUgLTIuODI4MTI1IEMgMS4wOTc2NTYgLTMuODA0Njg4IDAuODU5Mzc1IC00Ljk0NTMxMiAwLjg1OTM3NSAtNi4yNSBDIDAuODU5Mzc1IC04LjIyNjU2MiAxLjM5ODQzOCAtOS43NzM0MzggMi40ODQzNzUgLTEwLjg5MDYyNSBDIDMuNTY2NDA2IC0xMi4wMDM5MDYgNS4wNzAzMTIgLTEyLjU2MjUgNyAtMTIuNTYyNSBDIDguMjU3ODEyIC0xMi41NjI1IDkuMzUxNTYyIC0xMi4zMTI1IDEwLjI4MTI1IC0xMS44MTI1IEMgMTEuMjA3MDMxIC0xMS4zMTI1IDExLjkxNDA2MiAtMTAuNTgyMDMxIDEyLjQwNjI1IC05LjYyNSBDIDEyLjg5NDUzMSAtOC42NzU3ODEgMTMuMTQwNjI1IC03LjU1MDc4MSAxMy4xNDA2MjUgLTYuMjUgWiBNIDExLjQyMTg3NSAtNi4yNSBDIDExLjQyMTg3NSAtNy43ODkwNjIgMTEuMDM1MTU2IC05IDEwLjI2NTYyNSAtOS44NzUgQyA5LjQ5MjE4OCAtMTAuNzU3ODEyIDguNDA2MjUgLTExLjIwMzEyNSA3IC0xMS4yMDMxMjUgQyA1LjU4MjAzMSAtMTEuMjAzMTI1IDQuNDg4MjgxIC0xMC43NjU2MjUgMy43MTg3NSAtOS44OTA2MjUgQyAyLjk0NTMxMiAtOS4wMjM0MzggMi41NjI1IC03LjgxMjUgMi41NjI1IC02LjI1IEMgMi41NjI1IC00LjY5NTMxMiAyLjk1MzEyNSAtMy40NjA5MzggMy43MzQzNzUgLTIuNTQ2ODc1IEMgNC41MTU2MjUgLTEuNjQwNjI1IDUuNTk3NjU2IC0xLjE4NzUgNi45ODQzNzUgLTEuMTg3NSBDIDguNDEwMTU2IC0xLjE4NzUgOS41MDM5MDYgLTEuNjI1IDEwLjI2NTYyNSAtMi41IEMgMTEuMDM1MTU2IC0zLjM4MjgxMiAxMS40MjE4NzUgLTQuNjMyODEyIDExLjQyMTg3NSAtNi4yNSBaIE0gMTEuNDIxODc1IC02LjI1ICIvPgo8L3N5bWJvbD4KPHN5bWJvbCBvdmVyZmxvdz0idmlzaWJsZSIgaWQ9ImdseXBoMC02Ij4KPHBhdGggc3R5bGU9InN0cm9rZTpub25lOyIgZD0iTSAwLjkwNjI1IC02LjI1IEMgMC45MDYyNSAtOC4yNTc4MTIgMS40NDE0MDYgLTkuODEyNSAyLjUxNTYyNSAtMTAuOTA2MjUgQyAzLjU5NzY1NiAtMTIuMDA3ODEyIDUuMTEzMjgxIC0xMi41NjI1IDcuMDYyNSAtMTIuNTYyNSBDIDguNDM3NSAtMTIuNTYyNSA5LjU1MDc4MSAtMTIuMzMyMDMxIDEwLjQwNjI1IC0xMS44NzUgQyAxMS4yNTc4MTIgLTExLjQxNDA2MiAxMS45MjE4NzUgLTEwLjY3NTc4MSAxMi4zOTA2MjUgLTkuNjU2MjUgTCAxMC43ODEyNSAtOS4xNzE4NzUgQyAxMC40MjU3ODEgLTkuODc4OTA2IDkuOTQxNDA2IC0xMC4zOTQ1MzEgOS4zMjgxMjUgLTEwLjcxODc1IEMgOC43MTA5MzggLTExLjAzOTA2MiA3Ljk0MTQwNiAtMTEuMjAzMTI1IDcuMDE1NjI1IC0xMS4yMDMxMjUgQyA1LjU4NTkzOCAtMTEuMjAzMTI1IDQuNDkyMTg4IC0xMC43Njk1MzEgMy43MzQzNzUgLTkuOTA2MjUgQyAyLjk4NDM3NSAtOS4wMzkwNjIgMi42MDkzNzUgLTcuODIwMzEyIDIuNjA5Mzc1IC02LjI1IEMgMi42MDkzNzUgLTQuNjg3NSAzLjAwNzgxMiAtMy40NTMxMjUgMy44MTI1IC0yLjU0Njg3NSBDIDQuNjEzMjgxIC0xLjY0MDYyNSA1LjcyMjY1NiAtMS4xODc1IDcuMTQwNjI1IC0xLjE4NzUgQyA3Ljk1MzEyNSAtMS4xODc1IDguNzA3MDMxIC0xLjMwNDY4OCA5LjQwNjI1IC0xLjU0Njg3NSBDIDEwLjEwMTU2MiAtMS43OTY4NzUgMTAuNjcxODc1IC0yLjEzMjgxMiAxMS4xMDkzNzUgLTIuNTYyNSBMIDExLjEwOTM3NSAtNC43OTY4NzUgTCA3LjQwNjI1IC00Ljc5Njg3NSBMIDcuNDA2MjUgLTYuMjAzMTI1IEwgMTIuNjU2MjUgLTYuMjAzMTI1IEwgMTIuNjU2MjUgLTEuOTIxODc1IEMgMTIgLTEuMjUzOTA2IDExLjE5MTQwNiAtMC43MzgyODEgMTAuMjM0Mzc1IC0wLjM3NSBDIDkuMjg1MTU2IC0wLjAwNzgxMjUgOC4yNTM5MDYgMC4xNzE4NzUgNy4xNDA2MjUgMC4xNzE4NzUgQyA1Ljg0NzY1NiAwLjE3MTg3NSA0LjczNDM3NSAtMC4wODIwMzEyIDMuNzk2ODc1IC0wLjU5Mzc1IEMgMi44NTkzNzUgLTEuMTEzMjgxIDIuMTQwNjI1IC0xLjg1OTM3NSAxLjY0MDYyNSAtMi44MjgxMjUgQyAxLjE0ODQzOCAtMy43OTY4NzUgMC45MDYyNSAtNC45Mzc1IDAuOTA2MjUgLTYuMjUgWiBNIDAuOTA2MjUgLTYuMjUgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgwLTciPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDEyIDAgTCAxMiAtOC4yNjU2MjUgQyAxMiAtOS4xNzk2ODggMTIuMDIzNDM4IC0xMC4wNjI1IDEyLjA3ODEyNSAtMTAuOTA2MjUgQyAxMS43OTY4NzUgLTkuODUxNTYyIDExLjUzOTA2MiAtOS4wMzEyNSAxMS4zMTI1IC04LjQzNzUgTCA4LjEwOTM3NSAwIEwgNi45Mzc1IDAgTCAzLjY4NzUgLTguNDM3NSBMIDMuMjAzMTI1IC05LjkzNzUgTCAyLjkwNjI1IC0xMC45MDYyNSBMIDIuOTM3NSAtOS45MjE4NzUgTCAyLjk2ODc1IC04LjI2NTYyNSBMIDIuOTY4NzUgMCBMIDEuNDg0Mzc1IDAgTCAxLjQ4NDM3NSAtMTIuMzkwNjI1IEwgMy42ODc1IC0xMi4zOTA2MjUgTCA2Ljk4NDM3NSAtMy43OTY4NzUgQyA3LjA5NzY1NiAtMy40NTMxMjUgNy4yMDcwMzEgLTMuMDgyMDMxIDcuMzEyNSAtMi42ODc1IEMgNy40MjU3ODEgLTIuMjg5MDYyIDcuNSAtMi4wMDM5MDYgNy41MzEyNSAtMS44MjgxMjUgQyA3LjU4MjAzMSAtMi4wNjY0MDYgNy42Nzk2ODggLTIuNDIxODc1IDcuODI4MTI1IC0yLjg5MDYyNSBDIDcuOTcyNjU2IC0zLjM2NzE4OCA4LjA3MDMxMiAtMy42NzE4NzUgOC4xMjUgLTMuNzk2ODc1IEwgMTEuMzU5Mzc1IC0xMi4zOTA2MjUgTCAxMy41MTU2MjUgLTEyLjM5MDYyNSBMIDEzLjUxNTYyNSAwIFogTSAxMiAwICIvPgo8L3N5bWJvbD4KPHN5bWJvbCBvdmVyZmxvdz0idmlzaWJsZSIgaWQ9ImdseXBoMC04Ij4KPHBhdGggc3R5bGU9InN0cm9rZTpub25lOyIgZD0iTSAxLjQ4NDM3NSAwIEwgMS40ODQzNzUgLTEyLjM5MDYyNSBMIDMuMTU2MjUgLTEyLjM5MDYyNSBMIDMuMTU2MjUgLTEuMzc1IEwgOS40MDYyNSAtMS4zNzUgTCA5LjQwNjI1IDAgWiBNIDEuNDg0Mzc1IDAgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgxLTAiPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDIuNDA2MjUgLTE2LjUxNTYyNSBMIDE1LjU5Mzc1IC0xNi41MTU2MjUgTCAxNS41OTM3NSAwIEwgMi40MDYyNSAwIFogTSAzLjI5Njg3NSAtMTUuNjI1IEwgMy4yOTY4NzUgLTAuODkwNjI1IEwgMTQuNzAzMTI1IC0wLjg5MDYyNSBMIDE0LjcwMzEyNSAtMTUuNjI1IFogTSAzLjI5Njg3NSAtMTUuNjI1ICIvPgo8L3N5bWJvbD4KPHN5bWJvbCBvdmVyZmxvdz0idmlzaWJsZSIgaWQ9ImdseXBoMS0xIj4KPHBhdGggc3R5bGU9InN0cm9rZTpub25lOyIgZD0iTSAxMi4zNDM3NSAtNS4zNzUgQyAxMi4zNDM3NSAtMy42MzI4MTIgMTEuODIwMzEyIC0yLjI2NTYyNSAxMC43ODEyNSAtMS4yNjU2MjUgQyA5Ljc1IC0wLjI2NTYyNSA4LjMxNjQwNiAwLjIzNDM3NSA2LjQ4NDM3NSAwLjIzNDM3NSBDIDQuOTQxNDA2IDAuMjM0Mzc1IDMuNjk1MzEyIC0wLjA5NzY1NjIgMi43NSAtMC43NjU2MjUgQyAxLjgxMjUgLTEuNDQxNDA2IDEuMjE4NzUgLTIuNDE0MDYyIDAuOTY4NzUgLTMuNjg3NSBMIDMuMDkzNzUgLTMuOTM3NSBDIDMuNTM5MDYyIC0yLjMwMDc4MSA0LjY4NzUgLTEuNDg0Mzc1IDYuNTMxMjUgLTEuNDg0Mzc1IEMgNy42NjQwNjIgLTEuNDg0Mzc1IDguNTUwNzgxIC0xLjgyODEyNSA5LjE4NzUgLTIuNTE1NjI1IEMgOS44MzIwMzEgLTMuMjAzMTI1IDEwLjE1NjI1IC00LjE0MDYyNSAxMC4xNTYyNSAtNS4zMjgxMjUgQyAxMC4xNTYyNSAtNi4zNjcxODggOS44MzIwMzEgLTcuMjA3MDMxIDkuMTg3NSAtNy44NDM3NSBDIDguNTM5MDYyIC04LjQ4ODI4MSA3LjY3MTg3NSAtOC44MTI1IDYuNTc4MTI1IC04LjgxMjUgQyA2LjAwMzkwNiAtOC44MTI1IDUuNDcyNjU2IC04LjcyMjY1NiA0Ljk4NDM3NSAtOC41NDY4NzUgQyA0LjQ5MjE4OCAtOC4zNjcxODggNCAtOC4wNjI1IDMuNSAtNy42MjUgTCAxLjQzNzUgLTcuNjI1IEwgMiAtMTYuNTE1NjI1IEwgMTEuMzc1IC0xNi41MTU2MjUgTCAxMS4zNzUgLTE0LjcxODc1IEwgMy45MjE4NzUgLTE0LjcxODc1IEwgMy41OTM3NSAtOS40ODQzNzUgQyA0LjUwNzgxMiAtMTAuMTc5Njg4IDUuNjQ4NDM4IC0xMC41MzEyNSA3LjAxNTYyNSAtMTAuNTMxMjUgQyA4LjY0MDYyNSAtMTAuNTMxMjUgOS45Mjk2ODggLTEwLjA1MDc4MSAxMC44OTA2MjUgLTkuMDkzNzUgQyAxMS44NTkzNzUgLTguMTQ0NTMxIDEyLjM0Mzc1IC02LjkwNjI1IDEyLjM0Mzc1IC01LjM3NSBaIE0gMTIuMzQzNzUgLTUuMzc1ICIvPgo8L3N5bWJvbD4KPHN5bWJvbCBvdmVyZmxvdz0idmlzaWJsZSIgaWQ9ImdseXBoMS0yIj4KPHBhdGggc3R5bGU9InN0cm9rZTpub25lOyIgZD0iTSAxMi4yOTY4NzUgLTQuNTYyNSBDIDEyLjI5Njg3NSAtMy4wMzkwNjIgMTEuODEyNSAtMS44NTkzNzUgMTAuODQzNzUgLTEuMDE1NjI1IEMgOS44NzUgLTAuMTc5Njg4IDguNDg4MjgxIDAuMjM0Mzc1IDYuNjg3NSAwLjIzNDM3NSBDIDUuMDE5NTMxIDAuMjM0Mzc1IDMuNjg3NSAtMC4xNDA2MjUgMi42ODc1IC0wLjg5MDYyNSBDIDEuNjk1MzEyIC0xLjY0ODQzOCAxLjEwOTM3NSAtMi43Njk1MzEgMC45MjE4NzUgLTQuMjUgTCAzLjA5Mzc1IC00LjQzNzUgQyAzLjM3NSAtMi40ODgyODEgNC41NzAzMTIgLTEuNTE1NjI1IDYuNjg3NSAtMS41MTU2MjUgQyA3Ljc1IC0xLjUxNTYyNSA4LjU4MjAzMSAtMS43NzM0MzggOS4xODc1IC0yLjI5Njg3NSBDIDkuODAwNzgxIC0yLjgxNjQwNiAxMC4xMDkzNzUgLTMuNTkzNzUgMTAuMTA5Mzc1IC00LjYyNSBDIDEwLjEwOTM3NSAtNS41MzEyNSA5Ljc1NzgxMiAtNi4yMzQzNzUgOS4wNjI1IC02LjczNDM3NSBDIDguMzc1IC03LjIzNDM3NSA3LjM3ODkwNiAtNy40ODQzNzUgNi4wNzgxMjUgLTcuNDg0Mzc1IEwgNC44NzUgLTcuNDg0Mzc1IEwgNC44NzUgLTkuMzEyNSBMIDYuMDMxMjUgLTkuMzEyNSBDIDcuMTg3NSAtOS4zMTI1IDguMDgyMDMxIC05LjU2MjUgOC43MTg3NSAtMTAuMDYyNSBDIDkuMzUxNTYyIC0xMC41NzAzMTIgOS42NzE4NzUgLTExLjI3MzQzOCA5LjY3MTg3NSAtMTIuMTcxODc1IEMgOS42NzE4NzUgLTEzLjA0Njg3NSA5LjQxMDE1NiAtMTMuNzM4MjgxIDguODkwNjI1IC0xNC4yNSBDIDguMzY3MTg4IC0xNC43Njk1MzEgNy41OTc2NTYgLTE1LjAzMTI1IDYuNTc4MTI1IC0xNS4wMzEyNSBDIDUuNjQ4NDM4IC0xNS4wMzEyNSA0Ljg5NDUzMSAtMTQuNzg5MDYyIDQuMzEyNSAtMTQuMzEyNSBDIDMuNzM4MjgxIC0xMy44MzIwMzEgMy40MDYyNSAtMTMuMTYwMTU2IDMuMzEyNSAtMTIuMjk2ODc1IEwgMS4yMDMxMjUgLTEyLjQ1MzEyNSBDIDEuMzU5Mzc1IC0xMy44MDQ2ODggMS45MTQwNjIgLTE0Ljg2MzI4MSAyLjg3NSAtMTUuNjI1IEMgMy44NDM3NSAtMTYuMzgyODEyIDUuMDgyMDMxIC0xNi43NjU2MjUgNi41OTM3NSAtMTYuNzY1NjI1IEMgOC4yNSAtMTYuNzY1NjI1IDkuNTM1MTU2IC0xNi4zNzg5MDYgMTAuNDUzMTI1IC0xNS42MDkzNzUgQyAxMS4zNzg5MDYgLTE0LjgzNTkzOCAxMS44NDM3NSAtMTMuNzY1NjI1IDExLjg0Mzc1IC0xMi4zOTA2MjUgQyAxMS44NDM3NSAtMTEuMzM1OTM4IDExLjU0Njg3NSAtMTAuNDc2NTYyIDEwLjk1MzEyNSAtOS44MTI1IEMgMTAuMzU5Mzc1IC05LjE1NjI1IDkuNSAtOC43MDcwMzEgOC4zNzUgLTguNDY4NzUgTCA4LjM3NSAtOC40MjE4NzUgQyA5LjYxMzI4MSAtOC4yOTY4NzUgMTAuNTc4MTI1IC03Ljg4MjgxMiAxMS4yNjU2MjUgLTcuMTg3NSBDIDExLjk1MzEyNSAtNi40ODgyODEgMTIuMjk2ODc1IC01LjYxMzI4MSAxMi4yOTY4NzUgLTQuNTYyNSBaIE0gMTIuMjk2ODc1IC00LjU2MjUgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgxLTMiPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDEuODI4MTI1IDAgTCAxLjgyODEyNSAtMS43OTY4NzUgTCA2LjAzMTI1IC0xLjc5Njg3NSBMIDYuMDMxMjUgLTE0LjUgTCAyLjMxMjUgLTExLjg0Mzc1IEwgMi4zMTI1IC0xMy44MjgxMjUgTCA2LjIxODc1IC0xNi41MTU2MjUgTCA4LjE1NjI1IC0xNi41MTU2MjUgTCA4LjE1NjI1IC0xLjc5Njg3NSBMIDEyLjE3MTg3NSAtMS43OTY4NzUgTCAxMi4xNzE4NzUgMCBaIE0gMS44MjgxMjUgMCAiLz4KPC9zeW1ib2w+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDEtNCI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gMTIuNDA2MjUgLTguMjY1NjI1IEMgMTIuNDA2MjUgLTUuNTAzOTA2IDExLjkyMTg3NSAtMy4zOTQ1MzEgMTAuOTUzMTI1IC0xLjkzNzUgQyA5Ljk4NDM3NSAtMC40ODgyODEgOC41NDY4NzUgMC4yMzQzNzUgNi42NDA2MjUgMC4yMzQzNzUgQyA0Ljc0MjE4OCAwLjIzNDM3NSAzLjMxNjQwNiAtMC40ODgyODEgMi4zNTkzNzUgLTEuOTM3NSBDIDEuNDEwMTU2IC0zLjM4MjgxMiAwLjkzNzUgLTUuNDkyMTg4IDAuOTM3NSAtOC4yNjU2MjUgQyAwLjkzNzUgLTExLjA5NzY1NiAxLjM5ODQzOCAtMTMuMjIyNjU2IDIuMzI4MTI1IC0xNC42NDA2MjUgQyAzLjI1MzkwNiAtMTYuMDU0Njg4IDQuNzE4NzUgLTE2Ljc2NTYyNSA2LjcxODc1IC0xNi43NjU2MjUgQyA4LjY2NDA2MiAtMTYuNzY1NjI1IDEwLjA5NzY1NiAtMTYuMDQ2ODc1IDExLjAxNTYyNSAtMTQuNjA5Mzc1IEMgMTEuOTQxNDA2IC0xMy4xNzk2ODggMTIuNDA2MjUgLTExLjA2NjQwNiAxMi40MDYyNSAtOC4yNjU2MjUgWiBNIDEwLjI2NTYyNSAtOC4yNjU2MjUgQyAxMC4yNjU2MjUgLTEwLjY0ODQzOCA5Ljk4ODI4MSAtMTIuMzc1IDkuNDM3NSAtMTMuNDM3NSBDIDguODgyODEyIC0xNC41MDc4MTIgNy45NzY1NjIgLTE1LjA0Njg3NSA2LjcxODc1IC0xNS4wNDY4NzUgQyA1LjQxNDA2MiAtMTUuMDQ2ODc1IDQuNDg0Mzc1IC0xNC41MTk1MzEgMy45MjE4NzUgLTEzLjQ2ODc1IEMgMy4zNTkzNzUgLTEyLjQxNDA2MiAzLjA3ODEyNSAtMTAuNjc5Njg4IDMuMDc4MTI1IC04LjI2NTYyNSBDIDMuMDc4MTI1IC01LjkyMTg3NSAzLjM2MzI4MSAtNC4yMDMxMjUgMy45Mzc1IC0zLjEwOTM3NSBDIDQuNTA3ODEyIC0yLjAyMzQzOCA1LjQyMTg3NSAtMS40ODQzNzUgNi42NzE4NzUgLTEuNDg0Mzc1IEMgNy45MTAxNTYgLTEuNDg0Mzc1IDguODE2NDA2IC0yLjAzNTE1NiA5LjM5MDYyNSAtMy4xNDA2MjUgQyA5Ljk3MjY1NiAtNC4yNTM5MDYgMTAuMjY1NjI1IC01Ljk2MDkzOCAxMC4yNjU2MjUgLTguMjY1NjI1IFogTSAxMC4yNjU2MjUgLTguMjY1NjI1ICIvPgo8L3N5bWJvbD4KPHN5bWJvbCBvdmVyZmxvdz0idmlzaWJsZSIgaWQ9ImdseXBoMS01Ij4KPHBhdGggc3R5bGU9InN0cm9rZTpub25lOyIgZD0iTSAxLjIwMzEyNSAwIEwgMS4yMDMxMjUgLTEuNDg0Mzc1IEMgMS42MDkzNzUgLTIuMzk4NDM4IDIuMDk3NjU2IC0zLjIwNzAzMSAyLjY3MTg3NSAtMy45MDYyNSBDIDMuMjQyMTg4IC00LjYwMTU2MiAzLjg0Mzc1IC01LjIzNDM3NSA0LjQ2ODc1IC01Ljc5Njg3NSBDIDUuMTAxNTYyIC02LjM2NzE4OCA1LjczNDM3NSAtNi44OTQ1MzEgNi4zNTkzNzUgLTcuMzc1IEMgNi45ODQzNzUgLTcuODYzMjgxIDcuNTQ2ODc1IC04LjM0NzY1NiA4LjA0Njg3NSAtOC44MjgxMjUgQyA4LjU0Njg3NSAtOS4zMTY0MDYgOC45NDUzMTIgLTkuODI4MTI1IDkuMjUgLTEwLjM1OTM3NSBDIDkuNTYyNSAtMTAuODkwNjI1IDkuNzE4NzUgLTExLjQ5MjE4OCA5LjcxODc1IC0xMi4xNzE4NzUgQyA5LjcxODc1IC0xMy4wNzgxMjUgOS40NTMxMjUgLTEzLjc4MTI1IDguOTIxODc1IC0xNC4yODEyNSBDIDguMzkwNjI1IC0xNC43ODEyNSA3LjY0ODQzOCAtMTUuMDMxMjUgNi43MDMxMjUgLTE1LjAzMTI1IEMgNS44MDQ2ODggLTE1LjAzMTI1IDUuMDY2NDA2IC0xNC43ODUxNTYgNC40ODQzNzUgLTE0LjI5Njg3NSBDIDMuODk4NDM4IC0xMy44MDQ2ODggMy41NTQ2ODggLTEzLjExNzE4OCAzLjQ1MzEyNSAtMTIuMjM0Mzc1IEwgMS4yOTY4NzUgLTEyLjQzNzUgQyAxLjQ1MzEyNSAtMTMuNzU3ODEyIDIuMDE1NjI1IC0xNC44MTI1IDIuOTg0Mzc1IC0xNS41OTM3NSBDIDMuOTUzMTI1IC0xNi4zNzUgNS4xOTE0MDYgLTE2Ljc2NTYyNSA2LjcwMzEyNSAtMTYuNzY1NjI1IEMgOC4zNjcxODggLTE2Ljc2NTYyNSA5LjY0ODQzOCAtMTYuMzY3MTg4IDEwLjU0Njg3NSAtMTUuNTc4MTI1IEMgMTEuNDQxNDA2IC0xNC43OTY4NzUgMTEuODkwNjI1IC0xMy42Nzk2ODggMTEuODkwNjI1IC0xMi4yMzQzNzUgQyAxMS44OTA2MjUgLTExLjU5NzY1NiAxMS43MzgyODEgLTEwLjk2MDkzOCAxMS40Mzc1IC0xMC4zMjgxMjUgQyAxMS4xNDQ1MzEgLTkuNjkxNDA2IDEwLjcwNzAzMSAtOS4wNTQ2ODggMTAuMTI1IC04LjQyMTg3NSBDIDkuNTUwNzgxIC03Ljc5Njg3NSA4LjQ1MzEyNSAtNi44MTY0MDYgNi44MjgxMjUgLTUuNDg0Mzc1IEMgNS45MjE4NzUgLTQuNzUzOTA2IDUuMjAzMTI1IC00LjA5Mzc1IDQuNjcxODc1IC0zLjUgQyA0LjE0MDYyNSAtMi45MDYyNSAzLjc1NzgxMiAtMi4zMzU5MzggMy41MzEyNSAtMS43OTY4NzUgTCAxMi4xNDA2MjUgLTEuNzk2ODc1IEwgMTIuMTQwNjI1IDAgWiBNIDEuMjAzMTI1IDAgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgxLTYiPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDEyLjE0MDYyNSAtMTQuNzk2ODc1IEMgMTAuNDUzMTI1IC0xMi4yMjI2NTYgOS4yNTc4MTIgLTEwLjIwMzEyNSA4LjU2MjUgLTguNzM0Mzc1IEMgNy44NzUgLTcuMjczNDM4IDcuMzUxNTYyIC01LjgzMjAzMSA3IC00LjQwNjI1IEMgNi42NTYyNSAtMi45ODgyODEgNi40ODQzNzUgLTEuNTE5NTMxIDYuNDg0Mzc1IDAgTCA0LjI4MTI1IDAgQyA0LjI4MTI1IC0yLjExMzI4MSA0LjcyNjU2MiAtNC4zMzIwMzEgNS42MjUgLTYuNjU2MjUgQyA2LjUxOTUzMSAtOC45ODgyODEgOC4wMTU2MjUgLTExLjY3NTc4MSAxMC4xMDkzNzUgLTE0LjcxODc1IEwgMS4yMzQzNzUgLTE0LjcxODc1IEwgMS4yMzQzNzUgLTE2LjUxNTYyNSBMIDEyLjE0MDYyNSAtMTYuNTE1NjI1IFogTSAxMi4xNDA2MjUgLTE0Ljc5Njg3NSAiLz4KPC9zeW1ib2w+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDEtNyI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gMTIuMjE4NzUgLTguNTkzNzUgQyAxMi4yMTg3NSAtNS43NTc4MTIgMTEuNjk1MzEyIC0zLjU3ODEyNSAxMC42NTYyNSAtMi4wNDY4NzUgQyA5LjYyNSAtMC41MjM0MzggOC4xNDg0MzggMC4yMzQzNzUgNi4yMzQzNzUgMC4yMzQzNzUgQyA0Ljk0MTQwNiAwLjIzNDM3NSAzLjkwNjI1IC0wLjAzNTE1NjIgMy4xMjUgLTAuNTc4MTI1IEMgMi4zNTE1NjIgLTEuMTE3MTg4IDEuODAwNzgxIC0yIDEuNDY4NzUgLTMuMjE4NzUgTCAzLjQ4NDM3NSAtMy41MzEyNSBDIDMuODk4NDM4IC0yLjE1NjI1IDQuODI4MTI1IC0xLjQ2ODc1IDYuMjY1NjI1IC0xLjQ2ODc1IEMgNy40ODQzNzUgLTEuNDY4NzUgOC40MjE4NzUgLTIuMDMxMjUgOS4wNzgxMjUgLTMuMTU2MjUgQyA5Ljc0MjE4OCAtNC4yODEyNSAxMC4wOTM3NSAtNS44ODI4MTIgMTAuMTI1IC03Ljk2ODc1IEMgOS44MTI1IC03LjI2OTUzMSA5LjI3MzQzOCAtNi43MDcwMzEgOC41MTU2MjUgLTYuMjgxMjUgQyA3Ljc2NTYyNSAtNS44NTE1NjIgNi45Mzc1IC01LjY0MDYyNSA2LjAzMTI1IC01LjY0MDYyNSBDIDQuNTM5MDYyIC01LjY0MDYyNSAzLjM0NzY1NiAtNi4xNDQ1MzEgMi40NTMxMjUgLTcuMTU2MjUgQyAxLjU2NjQwNiAtOC4xNzU3ODEgMS4xMjUgLTkuNTIzNDM4IDEuMTI1IC0xMS4yMDMxMjUgQyAxLjEyNSAtMTIuOTI5Njg4IDEuNjA5Mzc1IC0xNC4yODkwNjIgMi41NzgxMjUgLTE1LjI4MTI1IEMgMy41NDY4NzUgLTE2LjI2OTUzMSA0Ljg5NDUzMSAtMTYuNzY1NjI1IDYuNjI1IC0xNi43NjU2MjUgQyA4LjQ1NzAzMSAtMTYuNzY1NjI1IDkuODQ3NjU2IC0xNi4wODIwMzEgMTAuNzk2ODc1IC0xNC43MTg3NSBDIDExLjc0MjE4OCAtMTMuMzYzMjgxIDEyLjIxODc1IC0xMS4zMjAzMTIgMTIuMjE4NzUgLTguNTkzNzUgWiBNIDkuOTIxODc1IC0xMC42MjUgQyA5LjkyMTg3NSAtMTEuOTU3MDMxIDkuNjEzMjgxIC0xMy4wMjM0MzggOSAtMTMuODI4MTI1IEMgOC4zOTQ1MzEgLTE0LjY0MDYyNSA3LjU3ODEyNSAtMTUuMDQ2ODc1IDYuNTQ2ODc1IC0xNS4wNDY4NzUgQyA1LjUzNTE1NiAtMTUuMDQ2ODc1IDQuNzM0Mzc1IC0xNC42OTUzMTIgNC4xNDA2MjUgLTE0IEMgMy41NTQ2ODggLTEzLjMxMjUgMy4yNjU2MjUgLTEyLjM3ODkwNiAzLjI2NTYyNSAtMTEuMjAzMTI1IEMgMy4yNjU2MjUgLTEwLjAwMzkwNiAzLjU1NDY4OCAtOS4wNTA3ODEgNC4xNDA2MjUgLTguMzQzNzUgQyA0LjczNDM3NSAtNy42NDQ1MzEgNS41MzEyNSAtNy4yOTY4NzUgNi41MzEyNSAtNy4yOTY4NzUgQyA3LjEzMjgxMiAtNy4yOTY4NzUgNy42OTUzMTIgLTcuNDM3NSA4LjIxODc1IC03LjcxODc1IEMgOC43NSAtOCA5LjE2NDA2MiAtOC4zOTA2MjUgOS40Njg3NSAtOC44OTA2MjUgQyA5Ljc2OTUzMSAtOS4zOTg0MzggOS45MjE4NzUgLTkuOTc2NTYyIDkuOTIxODc1IC0xMC42MjUgWiBNIDkuOTIxODc1IC0xMC42MjUgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgxLTgiPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDEyLjI5Njg3NSAtNS40MDYyNSBDIDEyLjI5Njg3NSAtMy42NjQwNjIgMTEuODIwMzEyIC0yLjI4OTA2MiAxMC44NzUgLTEuMjgxMjUgQyA5LjkyNTc4MSAtMC4yNjk1MzEgOC42MjUgMC4yMzQzNzUgNi45Njg3NSAwLjIzNDM3NSBDIDUuMTAxNTYyIDAuMjM0Mzc1IDMuNjc1NzgxIC0wLjQ1NzAzMSAyLjY4NzUgLTEuODQzNzUgQyAxLjcwNzAzMSAtMy4yMjY1NjIgMS4yMTg3NSAtNS4yMzgyODEgMS4yMTg3NSAtNy44NzUgQyAxLjIxODc1IC0xMC43MzgyODEgMS43MjY1NjIgLTEyLjkzNzUgMi43NSAtMTQuNDY4NzUgQyAzLjc4MTI1IC0xNiA1LjIzODI4MSAtMTYuNzY1NjI1IDcuMTI1IC0xNi43NjU2MjUgQyA5LjYxMzI4MSAtMTYuNzY1NjI1IDExLjE4NzUgLTE1LjY0MDYyNSAxMS44NDM3NSAtMTMuMzkwNjI1IEwgOS44MjgxMjUgLTEzLjAzMTI1IEMgOS40MTAxNTYgLTE0LjM3NSA4LjUwMzkwNiAtMTUuMDQ2ODc1IDcuMTA5Mzc1IC0xNS4wNDY4NzUgQyA1Ljg5ODQzOCAtMTUuMDQ2ODc1IDQuOTYwOTM4IC0xNC40ODQzNzUgNC4yOTY4NzUgLTEzLjM1OTM3NSBDIDMuNjQwNjI1IC0xMi4yNDIxODggMy4zMTI1IC0xMC42MjUgMy4zMTI1IC04LjUgQyAzLjY5NTMxMiAtOS4yMDcwMzEgNC4yMzgyODEgLTkuNzQyMTg4IDQuOTM3NSAtMTAuMTA5Mzc1IEMgNS42MzI4MTIgLTEwLjQ4NDM3NSA2LjQyOTY4OCAtMTAuNjcxODc1IDcuMzI4MTI1IC0xMC42NzE4NzUgQyA4Ljg0NzY1NiAtMTAuNjcxODc1IDEwLjA1NDY4OCAtMTAuMTkxNDA2IDEwLjk1MzEyNSAtOS4yMzQzNzUgQyAxMS44NDc2NTYgLTguMjg1MTU2IDEyLjI5Njg3NSAtNy4wMDc4MTIgMTIuMjk2ODc1IC01LjQwNjI1IFogTSAxMC4xNTYyNSAtNS4zMTI1IEMgMTAuMTU2MjUgLTYuNTA3ODEyIDkuODU5Mzc1IC03LjQyOTY4OCA5LjI2NTYyNSAtOC4wNzgxMjUgQyA4LjY3OTY4OCAtOC43MjI2NTYgNy44NjcxODggLTkuMDQ2ODc1IDYuODI4MTI1IC05LjA0Njg3NSBDIDUuODM1OTM4IC05LjA0Njg3NSA1LjAzOTA2MiAtOC43NTc4MTIgNC40Mzc1IC04LjE4NzUgQyAzLjgzMjAzMSAtNy42MTMyODEgMy41MzEyNSAtNi44MjAzMTIgMy41MzEyNSAtNS44MTI1IEMgMy41MzEyNSAtNC41MzkwNjIgMy44NDM3NSAtMy41IDQuNDY4NzUgLTIuNjg3NSBDIDUuMTAxNTYyIC0xLjg3NSA1LjkxMDE1NiAtMS40Njg3NSA2Ljg5MDYyNSAtMS40Njg3NSBDIDcuOTEwMTU2IC0xLjQ2ODc1IDguNzA3MDMxIC0xLjgwNDY4OCA5LjI4MTI1IC0yLjQ4NDM3NSBDIDkuODYzMjgxIC0zLjE3MTg3NSAxMC4xNTYyNSAtNC4xMTMyODEgMTAuMTU2MjUgLTUuMzEyNSBaIE0gMTAuMTU2MjUgLTUuMzEyNSAiLz4KPC9zeW1ib2w+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDEtOSI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gMTAuMzI4MTI1IC0zLjczNDM3NSBMIDEwLjMyODEyNSAwIEwgOC4zMjgxMjUgMCBMIDguMzI4MTI1IC0zLjczNDM3NSBMIDAuNTQ2ODc1IC0zLjczNDM3NSBMIDAuNTQ2ODc1IC01LjM3NSBMIDguMTA5Mzc1IC0xNi41MTU2MjUgTCAxMC4zMjgxMjUgLTE2LjUxNTYyNSBMIDEwLjMyODEyNSAtNS40MDYyNSBMIDEyLjY0MDYyNSAtNS40MDYyNSBMIDEyLjY0MDYyNSAtMy43MzQzNzUgWiBNIDguMzI4MTI1IC0xNC4xNDA2MjUgQyA4LjMxNjQwNiAtMTQuMDg1OTM4IDguMjA3MDMxIC0xMy44Nzg5MDYgOCAtMTMuNTE1NjI1IEMgNy44MDA3ODEgLTEzLjE0ODQzOCA3LjY0ODQzOCAtMTIuODkwNjI1IDcuNTQ2ODc1IC0xMi43MzQzNzUgTCAzLjMxMjUgLTYuNSBMIDIuNjg3NSAtNS42NDA2MjUgTCAyLjUgLTUuNDA2MjUgTCA4LjMyODEyNSAtNS40MDYyNSBaIE0gOC4zMjgxMjUgLTE0LjE0MDYyNSAiLz4KPC9zeW1ib2w+CjwvZz4KPC9kZWZzPgo8ZyBpZD0ic3VyZmFjZTEiPgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNTA0IiBoZWlnaHQ9IjUwNCIgc3R5bGU9ImZpbGw6cmdiKDEwMCUsMTAwJSwxMDAlKTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTsiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYigxMDAlLDAlLDAlKTtmaWxsLW9wYWNpdHk6MC41MDE5NjE7IiBkPSJNIDMzOS43MzQzNzUgMTY0LjI2NTYyNSBMIDMzOS40Mzc1IDE1NC45NjQ4NDQgTCAzMzguNTU0Njg4IDE0NS42OTkyMTkgTCAzMzcuMDgyMDMxIDEzNi41MTE3MTkgTCAzMzUuMDMxMjUgMTI3LjQyOTY4OCBMIDMzMi40MTAxNTYgMTE4LjUgTCAzMjkuMjI2NTYyIDEwOS43NTc4MTIgTCAzMjUuNDk2MDk0IDEwMS4yMzA0NjkgTCAzMjEuMjMwNDY5IDkyLjk1NzAzMSBMIDMxNi40NDkyMTkgODQuOTcyNjU2IEwgMzExLjE3MTg3NSA3Ny4zMDg1OTQgTCAzMDUuNDE3OTY5IDY5Ljk5MjE4OCBMIDI5OS4yMTQ4NDQgNjMuMDU0Njg4IEwgMjkyLjU4MjAzMSA1Ni41MjczNDQgTCAyODUuNTQ2ODc1IDUwLjQzMzU5NCBMIDI3OC4xNDA2MjUgNDQuNzk2ODc1IEwgMjcwLjM5NDUzMSAzOS42NDA2MjUgTCAyNjIuMzMyMDMxIDM0Ljk4ODI4MSBMIDI1My45OTYwOTQgMzAuODU1NDY5IEwgMjQ1LjQxMDE1NiAyNy4yNTc4MTIgTCAyMzYuNjEzMjgxIDI0LjIxNDg0NCBMIDIyNy42NDQ1MzEgMjEuNzM0Mzc1IEwgMjE4LjUzNTE1NiAxOS44MjgxMjUgTCAyMDkuMzI0MjE5IDE4LjUwMzkwNiBMIDIwMC4wNDY4NzUgMTcuNzY1NjI1IEwgMTkwLjczODI4MSAxNy42MTcxODggTCAxODEuNDQxNDA2IDE4LjA2MjUgTCAxNzIuMTk1MzEyIDE5LjA5Mzc1IEwgMTYzLjAyNzM0NCAyMC43MDcwMzEgTCAxNTMuOTg0Mzc1IDIyLjkwMjM0NCBMIDE0NS4wOTc2NTYgMjUuNjY3OTY5IEwgMTM2LjQwMjM0NCAyOC45ODgyODEgTCAxMjcuOTM3NSAzMi44NTU0NjkgTCAxMTkuNzM0Mzc1IDM3LjI1IEwgMTExLjgyNDIxOSA0Mi4xNTYyNSBMIDEwNC4yNDIxODggNDcuNTU0Njg4IEwgOTcuMDE5NTMxIDUzLjQyMTg3NSBMIDkwLjE4MzU5NCA1OS43MzgyODEgTCA4My43NjE3MTkgNjYuNDcyNjU2IEwgNzcuNzc3MzQ0IDczLjYwMTU2MiBMIDcyLjI2MTcxOSA4MS4wOTc2NTYgTCA2Ny4yMzA0NjkgODguOTI1NzgxIEwgNjIuNzAzMTI1IDk3LjA1ODU5NCBMIDU4LjcwMzEyNSAxMDUuNDY0ODQ0IEwgNTUuMjQ2MDk0IDExNC4xMDU0NjkgTCA1Mi4zMzk4NDQgMTIyLjk0NTMxMiBMIDUwLjAwMzkwNiAxMzEuOTUzMTI1IEwgNDguMjQyMTg4IDE0MS4wOTM3NSBMIDQ3LjA2MjUgMTUwLjMyNDIxOSBMIDQ2LjQ3MjY1NiAxNTkuNjEzMjgxIEwgNDYuNDcyNjU2IDE2OC45MjE4NzUgTCA0Ny4wNjI1IDE3OC4yMDcwMzEgTCA0OC4yNDIxODggMTg3LjQ0MTQwNiBMIDUwLjAwMzkwNiAxOTYuNTc4MTI1IEwgNTIuMzM5ODQ0IDIwNS41ODU5MzggTCA1NS4yNDYwOTQgMjE0LjQyOTY4OCBMIDU4LjcwMzEyNSAyMjMuMDcwMzEyIEwgNjIuNzAzMTI1IDIzMS40NzI2NTYgTCA2Ny4yMzA0NjkgMjM5LjYwNTQ2OSBMIDcyLjI2MTcxOSAyNDcuNDMzNTk0IEwgNzcuNzc3MzQ0IDI1NC45Mjk2ODggTCA4My43NjE3MTkgMjYyLjA1ODU5NCBMIDkwLjE4MzU5NCAyNjguNzk2ODc1IEwgOTcuMDE5NTMxIDI3NS4xMDkzNzUgTCAxMDQuMjQyMTg4IDI4MC45NzY1NjIgTCAxMTEuODI0MjE5IDI4Ni4zNzUgTCAxMTkuNzM0Mzc1IDI5MS4yODUxNTYgTCAxMjcuOTM3NSAyOTUuNjc5Njg4IEwgMTM2LjQwMjM0NCAyOTkuNTQ2ODc1IEwgMTQ1LjA5NzY1NiAzMDIuODY3MTg4IEwgMTUzLjk4NDM3NSAzMDUuNjI4OTA2IEwgMTYzLjAyNzM0NCAzMDcuODI0MjE5IEwgMTcyLjE5NTMxMiAzMDkuNDQxNDA2IEwgMTgxLjQ0MTQwNiAzMTAuNDcyNjU2IEwgMTkwLjczODI4MSAzMTAuOTE0MDYyIEwgMjAwLjA0Njg3NSAzMTAuNzY1NjI1IEwgMjA5LjMyNDIxOSAzMTAuMDMxMjUgTCAyMTguNTM1MTU2IDMwOC43MDcwMzEgTCAyMjcuNjQ0NTMxIDMwNi44MDA3ODEgTCAyMzYuNjEzMjgxIDMwNC4zMjAzMTIgTCAyNDUuNDEwMTU2IDMwMS4yNzM0MzggTCAyNTMuOTk2MDk0IDI5Ny42Nzk2ODggTCAyNjIuMzMyMDMxIDI5My41NDY4NzUgTCAyNzAuMzk0NTMxIDI4OC44OTQ1MzEgTCAyNzguMTQwNjI1IDI4My43MzgyODEgTCAyODUuNTQ2ODc1IDI3OC4xMDE1NjIgTCAyOTIuNTgyMDMxIDI3Mi4wMDc4MTIgTCAyOTkuMjE0ODQ0IDI2NS40NzY1NjIgTCAzMDUuNDE3OTY5IDI1OC41NDI5NjkgTCAzMTEuMTcxODc1IDI1MS4yMjY1NjIgTCAzMTYuNDQ5MjE5IDI0My41NjI1IEwgMzIxLjIzMDQ2OSAyMzUuNTc0MjE5IEwgMzI1LjQ5NjA5NCAyMjcuMzA0Njg4IEwgMzI5LjIyNjU2MiAyMTguNzc3MzQ0IEwgMzMyLjQxMDE1NiAyMTAuMDMxMjUgTCAzMzUuMDMxMjUgMjAxLjEwMTU2MiBMIDMzNy4wODIwMzEgMTkyLjAyMzQzOCBMIDMzOC41NTQ2ODggMTgyLjgzMjAzMSBMIDMzOS40Mzc1IDE3My41NzAzMTIgWiBNIDMzOS43MzQzNzUgMTY0LjI2NTYyNSAiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYigwJSw1MC4xOTYwNzglLDEwLjE5NjA3OCUpO2ZpbGwtb3BhY2l0eTowLjUwMTk2MTsiIGQ9Ik0gNDg2LjM5ODQzOCAxNjQuMjY1NjI1IEwgNDg2LjEwNTQ2OSAxNTQuOTY0ODQ0IEwgNDg1LjIxODc1IDE0NS42OTkyMTkgTCA0ODMuNzUgMTM2LjUxMTcxOSBMIDQ4MS42OTkyMTkgMTI3LjQyOTY4OCBMIDQ3OS4wNzgxMjUgMTE4LjUgTCA0NzUuODk0NTMxIDEwOS43NTc4MTIgTCA0NzIuMTY0MDYyIDEwMS4yMzA0NjkgTCA0NjcuODk4NDM4IDkyLjk1NzAzMSBMIDQ2My4xMTcxODggODQuOTcyNjU2IEwgNDU3LjgzOTg0NCA3Ny4zMDg1OTQgTCA0NTIuMDg1OTM4IDY5Ljk5MjE4OCBMIDQ0NS44ODI4MTIgNjMuMDU0Njg4IEwgNDM5LjI1IDU2LjUyNzM0NCBMIDQzMi4yMTQ4NDQgNTAuNDMzNTk0IEwgNDI0LjgwODU5NCA0NC43OTY4NzUgTCA0MTcuMDU4NTk0IDM5LjY0MDYyNSBMIDQwOSAzNC45ODgyODEgTCA0MDAuNjYwMTU2IDMwLjg1NTQ2OSBMIDM5Mi4wNzgxMjUgMjcuMjU3ODEyIEwgMzgzLjI4MTI1IDI0LjIxNDg0NCBMIDM3NC4zMTI1IDIxLjczNDM3NSBMIDM2NS4yMDMxMjUgMTkuODI4MTI1IEwgMzU1Ljk4ODI4MSAxOC41MDM5MDYgTCAzNDYuNzEwOTM4IDE3Ljc2NTYyNSBMIDMzNy40MDYyNSAxNy42MTcxODggTCAzMjguMTA5Mzc1IDE4LjA2MjUgTCAzMTguODU5Mzc1IDE5LjA5Mzc1IEwgMzA5LjY5NTMxMiAyMC43MDcwMzEgTCAzMDAuNjUyMzQ0IDIyLjkwMjM0NCBMIDI5MS43NjE3MTkgMjUuNjY3OTY5IEwgMjgzLjA3MDMxMiAyOC45ODgyODEgTCAyNzQuNjA1NDY5IDMyLjg1NTQ2OSBMIDI2Ni4zOTg0MzggMzcuMjUgTCAyNTguNDkyMTg4IDQyLjE1NjI1IEwgMjUwLjkxMDE1NiA0Ny41NTQ2ODggTCAyNDMuNjg3NSA1My40MjE4NzUgTCAyMzYuODUxNTYyIDU5LjczODI4MSBMIDIzMC40Mjk2ODggNjYuNDcyNjU2IEwgMjI0LjQ0NTMxMiA3My42MDE1NjIgTCAyMTguOTI1NzgxIDgxLjA5NzY1NiBMIDIxMy44OTQ1MzEgODguOTI1NzgxIEwgMjA5LjM3MTA5NCA5Ny4wNTg1OTQgTCAyMDUuMzcxMDk0IDEwNS40NjQ4NDQgTCAyMDEuOTEwMTU2IDExNC4xMDU0NjkgTCAxOTkuMDA3ODEyIDEyMi45NDUzMTIgTCAxOTYuNjcxODc1IDEzMS45NTMxMjUgTCAxOTQuOTEwMTU2IDE0MS4wOTM3NSBMIDE5My43MzA0NjkgMTUwLjMyNDIxOSBMIDE5My4xNDA2MjUgMTU5LjYxMzI4MSBMIDE5My4xNDA2MjUgMTY4LjkyMTg3NSBMIDE5My43MzA0NjkgMTc4LjIwNzAzMSBMIDE5NC45MTAxNTYgMTg3LjQ0MTQwNiBMIDE5Ni42NzE4NzUgMTk2LjU3ODEyNSBMIDE5OS4wMDc4MTIgMjA1LjU4NTkzOCBMIDIwMS45MTAxNTYgMjE0LjQyOTY4OCBMIDIwNS4zNzEwOTQgMjIzLjA3MDMxMiBMIDIwOS4zNzEwOTQgMjMxLjQ3MjY1NiBMIDIxMy44OTQ1MzEgMjM5LjYwNTQ2OSBMIDIxOC45MjU3ODEgMjQ3LjQzMzU5NCBMIDIyNC40NDUzMTIgMjU0LjkyOTY4OCBMIDIzMC40Mjk2ODggMjYyLjA1ODU5NCBMIDIzNi44NTE1NjIgMjY4Ljc5Njg3NSBMIDI0My42ODc1IDI3NS4xMDkzNzUgTCAyNTAuOTEwMTU2IDI4MC45NzY1NjIgTCAyNTguNDkyMTg4IDI4Ni4zNzUgTCAyNjYuMzk4NDM4IDI5MS4yODUxNTYgTCAyNzQuNjA1NDY5IDI5NS42Nzk2ODggTCAyODMuMDcwMzEyIDI5OS41NDY4NzUgTCAyOTEuNzYxNzE5IDMwMi44NjcxODggTCAzMDAuNjUyMzQ0IDMwNS42Mjg5MDYgTCAzMDkuNjk1MzEyIDMwNy44MjQyMTkgTCAzMTguODU5Mzc1IDMwOS40NDE0MDYgTCAzMjguMTA5Mzc1IDMxMC40NzI2NTYgTCAzMzcuNDA2MjUgMzEwLjkxNDA2MiBMIDM0Ni43MTA5MzggMzEwLjc2NTYyNSBMIDM1NS45ODgyODEgMzEwLjAzMTI1IEwgMzY1LjIwMzEyNSAzMDguNzA3MDMxIEwgMzc0LjMxMjUgMzA2LjgwMDc4MSBMIDM4My4yODEyNSAzMDQuMzIwMzEyIEwgMzkyLjA3ODEyNSAzMDEuMjczNDM4IEwgNDAwLjY2MDE1NiAyOTcuNjc5Njg4IEwgNDA5IDI5My41NDY4NzUgTCA0MTcuMDU4NTk0IDI4OC44OTQ1MzEgTCA0MjQuODA4NTk0IDI4My43MzgyODEgTCA0MzIuMjE0ODQ0IDI3OC4xMDE1NjIgTCA0MzkuMjUgMjcyLjAwNzgxMiBMIDQ0NS44ODI4MTIgMjY1LjQ3NjU2MiBMIDQ1Mi4wODU5MzggMjU4LjU0Mjk2OSBMIDQ1Ny44Mzk4NDQgMjUxLjIyNjU2MiBMIDQ2My4xMTcxODggMjQzLjU2MjUgTCA0NjcuODk4NDM4IDIzNS41NzQyMTkgTCA0NzIuMTY0MDYyIDIyNy4zMDQ2ODggTCA0NzUuODk0NTMxIDIxOC43NzczNDQgTCA0NzkuMDc4MTI1IDIxMC4wMzEyNSBMIDQ4MS42OTkyMTkgMjAxLjEwMTU2MiBMIDQ4My43NSAxOTIuMDIzNDM4IEwgNDg1LjIxODc1IDE4Mi44MzIwMzEgTCA0ODYuMTA1NDY5IDE3My41NzAzMTIgWiBNIDQ4Ni4zOTg0MzggMTY0LjI2NTYyNSAiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYigwJSwwJSwxMDAlKTtmaWxsLW9wYWNpdHk6MC41MDE5NjE7IiBkPSJNIDQxMy4wNjY0MDYgMzEwLjkzMzU5NCBMIDQxMi43Njk1MzEgMzAxLjYzMjgxMiBMIDQxMS44ODY3MTkgMjkyLjM2NzE4OCBMIDQxMC40MTc5NjkgMjgzLjE3NTc4MSBMIDQwOC4zNjcxODggMjc0LjA5NzY1NiBMIDQwNS43NDIxODggMjY1LjE2Nzk2OSBMIDQwMi41NjI1IDI1Ni40MjE4NzUgTCAzOTguODI4MTI1IDI0Ny44OTg0MzggTCAzOTQuNTY2NDA2IDIzOS42MjUgTCAzODkuNzg1MTU2IDIzMS42NDA2MjUgTCAzODQuNTA3ODEyIDIyMy45NzI2NTYgTCAzNzguNzUzOTA2IDIxNi42NTYyNSBMIDM3Mi41NDY4NzUgMjA5LjcyMjY1NiBMIDM2NS45MTQwNjIgMjAzLjE5MTQwNiBMIDM1OC44ODI4MTIgMTk3LjA5NzY1NiBMIDM1MS40NzY1NjIgMTkxLjQ2MDkzOCBMIDM0My43MjY1NjIgMTg2LjMwODU5NCBMIDMzNS42Njc5NjkgMTgxLjY1MjM0NCBMIDMyNy4zMjgxMjUgMTc3LjUxOTUzMSBMIDMxOC43NDIxODggMTczLjkyNTc4MSBMIDMwOS45NDkyMTkgMTcwLjg4MjgxMiBMIDMwMC45NzY1NjIgMTY4LjQwMjM0NCBMIDI5MS44NjcxODggMTY2LjQ5NjA5NCBMIDI4Mi42NTYyNSAxNjUuMTcxODc1IEwgMjczLjM3ODkwNiAxNjQuNDMzNTk0IEwgMjY0LjA3NDIxOSAxNjQuMjg1MTU2IEwgMjU0Ljc3NzM0NCAxNjQuNzI2NTYyIEwgMjQ1LjUyNzM0NCAxNjUuNzU3ODEyIEwgMjM2LjM2MzI4MSAxNjcuMzc1IEwgMjI3LjMxNjQwNiAxNjkuNTcwMzEyIEwgMjE4LjQyOTY4OCAxNzIuMzMyMDMxIEwgMjA5LjczNDM3NSAxNzUuNjU2MjUgTCAyMDEuMjY5NTMxIDE3OS41MTk1MzEgTCAxOTMuMDY2NDA2IDE4My45MTc5NjkgTCAxODUuMTYwMTU2IDE4OC44MjQyMTkgTCAxNzcuNTc4MTI1IDE5NC4yMjI2NTYgTCAxNzAuMzU1NDY5IDIwMC4wODk4NDQgTCAxNjMuNTE1NjI1IDIwNi40MDYyNSBMIDE1Ny4wOTM3NSAyMTMuMTQwNjI1IEwgMTUxLjExMzI4MSAyMjAuMjY5NTMxIEwgMTQ1LjU5Mzc1IDIyNy43NjU2MjUgTCAxNDAuNTYyNSAyMzUuNTkzNzUgTCAxMzYuMDM5MDYyIDI0My43MjY1NjIgTCAxMzIuMDM5MDYyIDI1Mi4xMjg5MDYgTCAxMjguNTc4MTI1IDI2MC43Njk1MzEgTCAxMjUuNjc1NzgxIDI2OS42MTMyODEgTCAxMjMuMzM1OTM4IDI3OC42MjEwOTQgTCAxMjEuNTc0MjE5IDI4Ny43NjE3MTkgTCAxMjAuMzk4NDM4IDI5Ni45OTIxODggTCAxMTkuODA4NTk0IDMwNi4yODEyNSBMIDExOS44MDg1OTQgMzE1LjU4NTkzOCBMIDEyMC4zOTg0MzggMzI0Ljg3NSBMIDEyMS41NzQyMTkgMzM0LjEwNTQ2OSBMIDEyMy4zMzU5MzggMzQzLjI0NjA5NCBMIDEyNS42NzU3ODEgMzUyLjI1MzkwNiBMIDEyOC41NzgxMjUgMzYxLjA5NzY1NiBMIDEzMi4wMzkwNjIgMzY5LjczODI4MSBMIDEzNi4wMzkwNjIgMzc4LjE0MDYyNSBMIDE0MC41NjI1IDM4Ni4yNzM0MzggTCAxNDUuNTkzNzUgMzk0LjEwMTU2MiBMIDE1MS4xMTMyODEgNDAxLjU5NzY1NiBMIDE1Ny4wOTM3NSA0MDguNzI2NTYyIEwgMTYzLjUxNTYyNSA0MTUuNDYwOTM4IEwgMTcwLjM1NTQ2OSA0MjEuNzc3MzQ0IEwgMTc3LjU3ODEyNSA0MjcuNjQ0NTMxIEwgMTg1LjE2MDE1NiA0MzMuMDQyOTY5IEwgMTkzLjA2NjQwNiA0MzcuOTQ5MjE5IEwgMjAxLjI2OTUzMSA0NDIuMzQ3NjU2IEwgMjA5LjczNDM3NSA0NDYuMjEwOTM4IEwgMjE4LjQyOTY4OCA0NDkuNTM1MTU2IEwgMjI3LjMxNjQwNiA0NTIuMjk2ODc1IEwgMjM2LjM2MzI4MSA0NTQuNDkyMTg4IEwgMjQ1LjUyNzM0NCA0NTYuMTA1NDY5IEwgMjU0Ljc3NzM0NCA0NTcuMTQwNjI1IEwgMjY0LjA3NDIxOSA0NTcuNTgyMDMxIEwgMjczLjM3ODkwNiA0NTcuNDMzNTk0IEwgMjgyLjY1NjI1IDQ1Ni42OTUzMTIgTCAyOTEuODY3MTg4IDQ1NS4zNzEwOTQgTCAzMDAuOTc2NTYyIDQ1My40NjQ4NDQgTCAzMDkuOTQ5MjE5IDQ1MC45ODQzNzUgTCAzMTguNzQyMTg4IDQ0Ny45NDE0MDYgTCAzMjcuMzI4MTI1IDQ0NC4zNDc2NTYgTCAzMzUuNjY3OTY5IDQ0MC4yMTQ4NDQgTCAzNDMuNzI2NTYyIDQzNS41NTg1OTQgTCAzNTEuNDc2NTYyIDQzMC40MDYyNSBMIDM1OC44ODI4MTIgNDI0Ljc2OTUzMSBMIDM2NS45MTQwNjIgNDE4LjY3MTg3NSBMIDM3Mi41NDY4NzUgNDEyLjE0NDUzMSBMIDM3OC43NTM5MDYgNDA1LjIwNzAzMSBMIDM4NC41MDc4MTIgMzk3Ljg5NDUzMSBMIDM4OS43ODUxNTYgMzkwLjIyNjU2MiBMIDM5NC41NjY0MDYgMzgyLjI0MjE4OCBMIDM5OC44MjgxMjUgMzczLjk2ODc1IEwgNDAyLjU2MjUgMzY1LjQ0NTMxMiBMIDQwNS43NDIxODggMzU2LjY5OTIxOSBMIDQwOC4zNjcxODggMzQ3Ljc2OTUzMSBMIDQxMC40MTc5NjkgMzM4LjY5MTQwNiBMIDQxMS44ODY3MTkgMzI5LjUgTCA0MTIuNzY5NTMxIDMyMC4yMzQzNzUgWiBNIDQxMy4wNjY0MDYgMzEwLjkzMzU5NCAiLz4KPGcgc3R5bGU9ImZpbGw6cmdiKDg5LjgwMzkyMiUsODkuODAzOTIyJSw4OS44MDM5MjIlKTtmaWxsLW9wYWNpdHk6MTsiPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMC0xIiB4PSI2OS43ODkwNjIiIHk9IjE3MC4wNjA1NDciLz4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDAtMiIgeD0iODEuNzk0OTIyIiB5PSIxNzAuMDYwNTQ3Ii8+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTEiIHg9Ijk0Ljc5Mzk0NSIgeT0iMTcwLjA2MDU0NyIvPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMC0zIiB4PSIxMDYuNzk5ODA1IiB5PSIxNzAuMDYwNTQ3Ii8+CjwvZz4KPGcgc3R5bGU9ImZpbGw6cmdiKDg5LjgwMzkyMiUsODkuODAzOTIyJSw4OS44MDM5MjIlKTtmaWxsLW9wYWNpdHk6MTsiPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMC00IiB4PSI0MTYuNTExNzE5IiB5PSIxNjkuNTYwNTQ3Ii8+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTUiIHg9IjQyOS41MTA3NDIiIHk9IjE2OS41NjA1NDciLz4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDAtNiIgeD0iNDQzLjUxMTcxOSIgeT0iMTY5LjU2MDU0NyIvPgo8L2c+CjxnIHN0eWxlPSJmaWxsOnJnYig4OS44MDM5MjIlLDg5LjgwMzkyMiUsODkuODAzOTIyJSk7ZmlsbC1vcGFjaXR5OjE7Ij4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDAtNSIgeD0iMjM5Ljg5ODQzOCIgeT0iNDIzLjc4MzIwMyIvPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMC03IiB4PSIyNTMuODk5NDE0IiB5PSI0MjMuNzgzMjAzIi8+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTQiIHg9IjI2OC44OTM1NTUiIHk9IjQyMy43ODMyMDMiLz4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDAtOCIgeD0iMjgxLjg5MjU3OCIgeT0iNDIzLjc4MzIwMyIvPgo8L2c+CjxnIHN0eWxlPSJmaWxsOnJnYigwJSwwJSwwJSk7ZmlsbC1vcGFjaXR5OjE7Ij4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDEtMSIgeD0iMTMwLjY3OTY4OCIgeT0iMTIzLjEwNTQ2OSIvPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMS0yIiB4PSIxNDQuMDI3MzQ0IiB5PSIxMjMuMTA1NDY5Ii8+CjwvZz4KPGcgc3R5bGU9ImZpbGw6cmdiKDAlLDAlLDAlKTtmaWxsLW9wYWNpdHk6MTsiPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMS0zIiB4PSIzNjguMTIxMDk0IiB5PSIxMjMuMTA1NDY5Ii8+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgxLTQiIHg9IjM4MS40Njg3NSIgeT0iMTIzLjEwNTQ2OSIvPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMS00IiB4PSIzOTQuODE2NDA2IiB5PSIxMjMuMTA1NDY5Ii8+CjwvZz4KPGcgc3R5bGU9ImZpbGw6cmdiKDAlLDAlLDAlKTtmaWxsLW9wYWNpdHk6MTsiPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMS01IiB4PSIyNTIuODk4NDM4IiB5PSIzNjguMDQ2ODc1Ii8+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgxLTYiIHg9IjI2Ni4yNDYwOTQiIHk9IjM2OC4wNDY4NzUiLz4KPC9nPgo8ZyBzdHlsZT0iZmlsbDpyZ2IoMCUsMCUsMCUpO2ZpbGwtb3BhY2l0eToxOyI+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgxLTciIHg9IjI1OS4zOTg0MzgiIHk9IjEyMy4xMDU0NjkiLz4KPC9nPgo8ZyBzdHlsZT0iZmlsbDpyZ2IoMCUsMCUsMCUpO2ZpbGwtb3BhY2l0eToxOyI+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgxLTgiIHg9IjE3OS41NjY0MDYiIHk9IjI2OS43Njk1MzEiLz4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDEtMiIgeD0iMTkyLjkxNDA2MiIgeT0iMjY5Ljc2OTUzMSIvPgo8L2c+CjxnIHN0eWxlPSJmaWxsOnJnYigwJSwwJSwwJSk7ZmlsbC1vcGFjaXR5OjE7Ij4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDEtMyIgeD0iMzI2LjIzNDM3NSIgeT0iMjY5Ljc2OTUzMSIvPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMS0yIiB4PSIzMzkuNTgyMDMxIiB5PSIyNjkuNzY5NTMxIi8+CjwvZz4KPGcgc3R5bGU9ImZpbGw6cmdiKDAlLDAlLDAlKTtmaWxsLW9wYWNpdHk6MTsiPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMS05IiB4PSIyMzkuMzk4NDM4IiB5PSIyMjAuODgyODEyIi8+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgxLTEiIHg9IjI1Mi43NDYwOTQiIHk9IjIyMC44ODI4MTIiLz4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDEtMyIgeD0iMjY2LjA5Mzc1IiB5PSIyMjAuODgyODEyIi8+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgxLTciIHg9IjI3OS40NDE0MDYiIHk9IjIyMC44ODI4MTIiLz4KPC9nPgo8L2c+Cjwvc3ZnPgo=" alt />
+<p class="caption">Diagrama de Venn con el número de genes en cada
+cluster</p>
+</div>
+<hr />
+</div>
+<div id="obtener-la-matriz-de-pangenoma" class="section level1">
+<h1>Obtener la matriz de Pangenoma</h1>
+<pre><code>(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ get_homologues.pl -d data_get -t 0 -M</code></pre>
+<p>{: .language-bash}</p>
+<p>Salida:</p>
+<pre><code># /opt/anaconda3/envs/Pangenomics_Global/bin/get_homologues.pl -i 0 -d data_get -o 0 -X 0 -e 0 -f 0 -r 0 -t 0 -c 0 -z 0 -I 0 -m local -n 2 -M 1 -G 0 -p 0 -C 75 -S 1 -E 1e-05 -F 1.5 -N 0 -B 50 -b 0 -s 0 -D 0 -g 0 -a &#39;0&#39; -x 0 -R 0 -A 0 -P 0
+
+# version 28042022
+# results_directory=/home/alumno5/Haydee/data_get_homologues
+# parameters: MAXEVALUEBLASTSEARCH=0.01 MAXPFAMSEQS=250 BATCHSIZE=100 KEEPSCNDHSPS=1
+# diamond job:0
+
+# checking input files...
+# 2692915.4.faa 8802
+# 287862.3.faa 8982
+# 287863.3.faa 8982
+
+# 3 genomes, 26766 sequences
+
+# taxa considered = 3 sequences = 26766 residues = 7168829 MIN_BITSCORE_SIM = 18.7
+
+# mask=2692915_f0_0taxa_algOMCL_e0_ (_algOMCL)
+
+# skipped genome parsing (data_get_homologues/tmp/selected.genomes)
+
+# skip BLAST searches and parsing
+
+# WARNING: please remove/rename results directory:
+# &#39;/home/alumno5/Haydee/data_get_homologues/&#39;
+# if you change the sequences in your .gbk/.faa files or want to re-run
+
+# creating indexes, this might take some time (lines=7.70e+05) ...
+
+# construct_taxa_indexes: number of taxa found = 3
+# number of file addresses/BLAST queries = 2.7e+04
+
+# clustering orthologous sequences
+# find_OMCL_clusters: re-using previous results (same parameters)
+
+# find_OMCL_clusters: parsing clusters (/home/alumno5/Haydee/data_get_homologues/tmp/all_ortho.mcl)
+
+
+# add_unmatched_singletons : 3393 sequences, 3 taxa
+
+
+# looking for valid ORF clusters (n_of_taxa=0)...
+
+
+# number_of_clusters = 12233
+# cluster_list = data_get_homologues/2692915_f0_0taxa_algOMCL_e0_.cluster_list
+# cluster_directory = data_get_homologues/2692915_f0_0taxa_algOMCL_e0_
+
+# runtime:  5 wallclock secs ( 2.74 usr  0.21 sys +  0.31 cusr  0.02 csys =  3.28 CPU)
+# RAM use: 54.5 MB</code></pre>
+<p>{: .output}</p>
+<p>Segundo algoritmo</p>
+<pre><code>(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ get_homologues.pl -d data_get -t 0 -M</code></pre>
+<p>{: .language-bash}</p>
+<p>Salida</p>
+<pre><code># /opt/anaconda3/envs/Pangenomics_Global/bin/get_homologues.pl -i 0 -d data_get -o 0 -X 0 -e 0 -f 0 -r 0 -t 0 -c 0 -z 0 -I 0 -m local -n 2 -M 1 -G 0 -p 0 -C 75 -S 1 -E 1e-05 -F 1.5 -N 0 -B 50 -b 0 -s 0 -D 0 -g 0 -a &#39;0&#39; -x 0 -R 0 -A 0 -P 0
+
+# version 28042022
+# results_directory=/home/alumno5/Haydee/data_get_homologues
+# parameters: MAXEVALUEBLASTSEARCH=0.01 MAXPFAMSEQS=250 BATCHSIZE=100 KEEPSCNDHSPS=1
+# diamond job:0
+
+# checking input files...
+# 2692915.4.faa 8802
+# 287862.3.faa 8982
+# 287863.3.faa 8982
+
+# 3 genomes, 26766 sequences
+
+# taxa considered = 3 sequences = 26766 residues = 7168829 MIN_BITSCORE_SIM = 18.7
+
+# mask=2692915_f0_0taxa_algOMCL_e0_ (_algOMCL)
+
+# skipped genome parsing (data_get_homologues/tmp/selected.genomes)
+
+# skip BLAST searches and parsing
+
+# WARNING: please remove/rename results directory:
+# &#39;/home/alumno5/Haydee/data_get_homologues/&#39;
+# if you change the sequences in your .gbk/.faa files or want to re-run
+
+# creating indexes, this might take some time (lines=7.70e+05) ...
+
+# construct_taxa_indexes: number of taxa found = 3
+# number of file addresses/BLAST queries = 2.7e+04
+
+# clustering orthologous sequences
+# find_OMCL_clusters: re-using previous results (same parameters)
+
+# find_OMCL_clusters: parsing clusters (/home/alumno5/Haydee/data_get_homologues/tmp/all_ortho.mcl)
+
+
+# add_unmatched_singletons : 3393 sequences, 3 taxa
+
+
+# looking for valid ORF clusters (n_of_taxa=0)...
+
+
+# number_of_clusters = 12233
+# cluster_list = data_get_homologues/2692915_f0_0taxa_algOMCL_e0_.cluster_list
+# cluster_directory = data_get_homologues/2692915_f0_0taxa_algOMCL_e0_
+
+# runtime:  5 wallclock secs ( 2.74 usr  0.21 sys +  0.31 cusr  0.02 csys =  3.28 CPU)
+# RAM use: 54.5 MB</code></pre>
+<p>{: .output}</p>
+<p>Lista de cluster directorios de COG y OMCL</p>
+<pre><code>(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ ls -d data_get_homologues/*0taxa*</code></pre>
+<p>{: .language-bash}</p>
+<p>Directorios:</p>
+<pre><code>data_get_homologues/2692915_f0_0taxa_algCOG_e0_
+data_get_homologues/2692915_f0_0taxa_algOMCL_e0_</code></pre>
+<p>{: .output}</p>
+<pre><code>compare_clusters.pl -o alg_intersection -m -T -d \
+data_get_homologues/2692915_f0_0taxa_algCOG_e0_,\
+data_get_homologues/2692915_f0_0taxa_algOMCL_e0_</code></pre>
+<p>{: .language-bash}</p>
+<p>Salida (revisar)</p>
+<pre><code># /opt/anaconda3/envs/Pangenomics_Global/bin/compare_clusters.pl -d data_get_homologues/2692915_f0_0taxa_algCOG_e0_,data_get_homologues/2692915_f0_0taxa_algOMCL_e0_ -o alg_intersection -n 0 -m 1 -t 0 -I  -r 0 -s 0 -x 0 -T 1
+
+# output directory: alg_intersection
+# WARNING: output directory alg_intersection already exists, note that you might be mixing clusters from previous runs
+
+
+# number of input cluster directories = 2
+
+# parsing clusters in data_get_homologues/2692915_f0_0taxa_algCOG_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/2692915_f0_0taxa_algCOG_e0_.cluster_list)
+# WARNING: cluster 9113_fig-287862.3.peg.2940.faa duplicates 8962_fig-287862.3.peg.3636.faa
+# WARNING: cluster 11014_fig-287862.3.peg.3798.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 12285_fig-287862.3.peg.5187.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 13279_fig-287862.3.peg.6426.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 13396_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 14075_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 15342_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 15444_fig-287862.3.peg.8233.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 16549_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 19255_fig-287862.3.peg.3033.faa duplicates 10273_fig-287862.3.peg.3033.faa
+# WARNING: cluster 19481_fig-287862.3.peg.3259.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 19996_fig-287862.3.peg.3798.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 21267_fig-287862.3.peg.5187.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 21758_fig-287862.3.peg.5746.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 22175_fig-287862.3.peg.6279.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 22261_fig-287862.3.peg.6426.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 22378_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 23057_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 23500_fig-287862.3.peg.7704.faa duplicates 14518_fig-287862.3.peg.7704.faa
+# WARNING: cluster 24324_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 24426_fig-287862.3.peg.8233.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 25531_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 26163_fig-287862.3.peg.1549.faa duplicates 17181_fig-287862.3.peg.1549.faa
+# number of clusters = 11925 duplicated = 30
+# parsing clusters in data_get_homologues/2692915_f0_0taxa_algOMCL_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/2692915_f0_0taxa_algOMCL_e0_.cluster_list)
+# WARNING: cluster 9113_fig-287862.3.peg.2940.faa duplicates 8962_fig-287862.3.peg.3636.faa
+# WARNING: cluster 13396_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 14075_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 15342_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 16549_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 19255_fig-287862.3.peg.3033.faa duplicates 10273_fig-287862.3.peg.3033.faa
+# WARNING: cluster 20785_fig-287862.3.peg.4705.faa duplicates 11803_fig-287862.3.peg.4705.faa
+# WARNING: cluster 21758_fig-287862.3.peg.5746.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 22175_fig-287862.3.peg.6279.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 22378_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 23057_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 23500_fig-287862.3.peg.7704.faa duplicates 14518_fig-287862.3.peg.7704.faa
+# WARNING: cluster 24324_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 25531_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 26163_fig-287862.3.peg.1549.faa duplicates 17181_fig-287862.3.peg.1549.faa
+# number of clusters = 12211 duplicated = 22
+
+# duplicated list: alg_intersection/duplicated.cluster_list (please review)
+
+# intersection size = 11620 clusters
+
+# intersection list = alg_intersection/intersection_t0.cluster_list
+
+# pangenome_file = alg_intersection/pangenome_matrix_t0.tab transposed = alg_intersection/pangenome_matrix_t0.tr.tab
+# pangenome_genes = alg_intersection/pangenome_matrix_genes_t0.tab transposed = alg_intersection/pangenome_matrix_genes_t0.tr.tab
+# pangenome_phylip file = alg_intersection/pangenome_matrix_t0.phylip
+# pangenome_FASTA file = alg_intersection/pangenome_matrix_t0.fasta
+# pangenome CSV file (Scoary) = alg_intersection/pangenome_matrix_t0.tr.csv
+
+# parsimony results by PARS (PHYLIP suite, http://evolution.genetics.washington.edu/phylip/doc/pars.html):
+# pangenome_phylip tree = alg_intersection/pangenome_matrix_t0.phylip.ph
+# pangenome_phylip log = alg_intersection/pangenome_matrix_t0.phylip.log
+
+# input set: alg_intersection/2692915_f0_0taxa_algCOG_e0_.venn_t0.txt
+# input set: alg_intersection/2692915_f0_0taxa_algOMCL_e0_.venn_t0.txt
+
+# Venn diagram = alg_intersection/venn_t0.pdf alg_intersection/venn_t0.svg
+# Venn region file: alg_intersection/unique_2692915_f0_0taxa_algCOG_e0_.venn_t0.txt (305)
+# Venn region file: alg_intersection/unique_2692915_f0_0taxa_algOMCL_e0_.venn_t0.txt (591)</code></pre>
+<p>{: .output}</p>
+<p>#Plot core y Pangenome cluster del algoritmo BDBH</p>
+<pre><code>(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ plot_pancore_matrix.pl -i data_get_homologues/pan_genome_algBDBH.tab </code></pre>
+<p>{: .language-bash}</p>
+<pre><code># /opt/anaconda3/envs/Pangenomics_Global/bin/plot_pancore_matrix.pl -i data_get_homologues/pan_genome_algBDBH.tab -f core_Tettelin -F 0.80 -a 
+# outfiles: data_get_homologues/pan_genome_algBDBH.tab_core_Tettelin.log , data_get_homologues/pan_genome_algBDBH.tab_core_Tettelin.png , data_get_homologues/pan_genome_algBDBH.tab_core_Tettelin.pdf , data_get_homologues/pan_genome_algBDBH.tab_core_Tettelin.svg</code></pre>
+<p>{: .output}</p>
+<p>No se pude hacer este análisis. ~~~ (Pangenomics_Global) <a href="mailto:alumno5@betterlabub" class="email">alumno5@betterlabub</a>:~/Haydee$
+parse_pangenome_matrix.pl -m alg_intersection/pangenome_matrix_t0.tab -s
+~~~ {: .language-bash}</p>
+<pre><code># /opt/anaconda3/envs/Pangenomics_Global/bin/parse_pangenome_matrix.pl -m alg_intersection/pangenome_matrix_t0.tab -I  -A  -B  -a 0 -g 0 -e 0 -p  -s 1 -n 0 -l 0 -x 0 -P 100 -S 0
+
+# matrix contains 11620 clusters and 3 taxa
+
+# EXIT : need at least 5 taxa to perform -s analysis</code></pre>
+<p>{: .output}</p>
 </div>
 
 
