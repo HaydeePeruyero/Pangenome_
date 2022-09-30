@@ -793,3 +793,12 @@ No se pude hacer este análisis.
 
 =======
 
+# Clavibacter
+
+Hacer links simbólicos
+~~~
+find ~/get_homologues/sample_buch_fasta/. -name "*.faa" -exec ln -s {} . ';'
+~~~
+{: .language-bash}
+
+Tiempo aproximado 2horas...
