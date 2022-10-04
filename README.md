@@ -1689,5 +1689,120 @@ Salida
 {: .output}
 
 
+# Anvi-o
+
+Paso 1
+~~~
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_C_1874630.22.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_C_1874630.22
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_C_1874630.26.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_C_1874630.26
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_I_33014.40.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_I_33014.40
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_I_33014.42.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_I_33014.42
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_M_443906.110.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_M_443906.110
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_N_1097677.33.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_N_1097677.33
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_N_31963.54.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_N_31963.54
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_N_31963.56.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_N_31963.56
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_S_31964.81.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_S_31964.81
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_S_31964.84.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_S_31964.84
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_T_31965.20.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_T_31965.20
+anvi-script-process-genbank -i GENBANK --input-genbank /home/haydee/annotated/Clavibacter_M_T_31965.24.gbk -O /home/haydee/anvi-o/genome-db/Clavibacter_M_T_31965.24
+~~~
+{: .language-bash}
+
+~~~
+Clavibacter_M_C_1874630.22-contigs.fa               Clavibacter_M_N_31963.54-contigs.fa
+Clavibacter_M_C_1874630.22-external-functions.txt   Clavibacter_M_N_31963.54-external-functions.txt
+Clavibacter_M_C_1874630.22-external-gene-calls.txt  Clavibacter_M_N_31963.54-external-gene-calls.txt
+Clavibacter_M_C_1874630.26-contigs.fa               Clavibacter_M_N_31963.56-contigs.fa
+Clavibacter_M_C_1874630.26-external-functions.txt   Clavibacter_M_N_31963.56-external-functions.txt
+Clavibacter_M_C_1874630.26-external-gene-calls.txt  Clavibacter_M_N_31963.56-external-gene-calls.txt
+Clavibacter_M_I_33014.40-contigs.fa                 Clavibacter_M_S_31964.81-contigs.fa
+Clavibacter_M_I_33014.40-external-functions.txt     Clavibacter_M_S_31964.81-external-functions.txt
+Clavibacter_M_I_33014.40-external-gene-calls.txt    Clavibacter_M_S_31964.81-external-gene-calls.txt
+Clavibacter_M_I_33014.42-contigs.fa                 Clavibacter_M_S_31964.84-contigs.fa
+Clavibacter_M_I_33014.42-external-functions.txt     Clavibacter_M_S_31964.84-external-functions.txt
+Clavibacter_M_I_33014.42-external-gene-calls.txt    Clavibacter_M_S_31964.84-external-gene-calls.txt
+Clavibacter_M_M_443906.110-contigs.fa               Clavibacter_M_T_31965.20-contigs.fa
+Clavibacter_M_M_443906.110-external-functions.txt   Clavibacter_M_T_31965.20-external-functions.txt
+Clavibacter_M_M_443906.110-external-gene-calls.txt  Clavibacter_M_T_31965.20-external-gene-calls.txt
+Clavibacter_M_N_1097677.33-contigs.fa               Clavibacter_M_T_31965.24-contigs.fa
+Clavibacter_M_N_1097677.33-external-functions.txt   Clavibacter_M_T_31965.24-external-functions.txt
+Clavibacter_M_N_1097677.33-external-gene-calls.txt  Clavibacter_M_T_31965.24-external-gene-calls.txt
+~~~
+{: .output}
+
+Paso 2:
+~~~
+ls *fa |while read line; do anvi-script-reformat-fasta --seq-type NT $line -o $line\.fasta; done
+~~~
+{: .language-bash}
+
+~~~
+Clavibacter_M_C_1874630.22-contigs.fa               Clavibacter_M_N_31963.54-contigs.fa
+Clavibacter_M_C_1874630.22-contigs.fa.fasta         Clavibacter_M_N_31963.54-contigs.fa.fasta
+Clavibacter_M_C_1874630.22-external-functions.txt   Clavibacter_M_N_31963.54-external-functions.txt
+Clavibacter_M_C_1874630.22-external-gene-calls.txt  Clavibacter_M_N_31963.54-external-gene-calls.txt
+Clavibacter_M_C_1874630.26-contigs.fa               Clavibacter_M_N_31963.56-contigs.fa
+Clavibacter_M_C_1874630.26-contigs.fa.fasta         Clavibacter_M_N_31963.56-contigs.fa.fasta
+Clavibacter_M_C_1874630.26-external-functions.txt   Clavibacter_M_N_31963.56-external-functions.txt
+Clavibacter_M_C_1874630.26-external-gene-calls.txt  Clavibacter_M_N_31963.56-external-gene-calls.txt
+Clavibacter_M_I_33014.40-contigs.fa                 Clavibacter_M_S_31964.81-contigs.fa
+Clavibacter_M_I_33014.40-contigs.fa.fasta           Clavibacter_M_S_31964.81-contigs.fa.fasta
+Clavibacter_M_I_33014.40-external-functions.txt     Clavibacter_M_S_31964.81-external-functions.txt
+Clavibacter_M_I_33014.40-external-gene-calls.txt    Clavibacter_M_S_31964.81-external-gene-calls.txt
+Clavibacter_M_I_33014.42-contigs.fa                 Clavibacter_M_S_31964.84-contigs.fa
+Clavibacter_M_I_33014.42-contigs.fa.fasta           Clavibacter_M_S_31964.84-contigs.fa.fasta
+Clavibacter_M_I_33014.42-external-functions.txt     Clavibacter_M_S_31964.84-external-functions.txt
+Clavibacter_M_I_33014.42-external-gene-calls.txt    Clavibacter_M_S_31964.84-external-gene-calls.txt
+Clavibacter_M_M_443906.110-contigs.fa               Clavibacter_M_T_31965.20-contigs.fa
+Clavibacter_M_M_443906.110-contigs.fa.fasta         Clavibacter_M_T_31965.20-contigs.fa.fasta
+Clavibacter_M_M_443906.110-external-functions.txt   Clavibacter_M_T_31965.20-external-functions.txt
+Clavibacter_M_M_443906.110-external-gene-calls.txt  Clavibacter_M_T_31965.20-external-gene-calls.txt
+Clavibacter_M_N_1097677.33-contigs.fa               Clavibacter_M_T_31965.24-contigs.fa
+Clavibacter_M_N_1097677.33-contigs.fa.fasta         Clavibacter_M_T_31965.24-contigs.fa.fasta
+Clavibacter_M_N_1097677.33-external-functions.txt   Clavibacter_M_T_31965.24-external-functions.txt
+Clavibacter_M_N_1097677.33-external-gene-calls.txt  Clavibacter_M_T_31965.24-external-gene-calls.txt
+~~~
+{: .output}
 
 
+Paso 3:
+
+¿Qué sgnifica el 4? Marca un warning el output y tarda un poquito.
+~~~
+ls *fasta | while read line; do anvi-gen-contigs-database -T 4 -f $line -o $line-contigs.db; done
+~~~
+{: .language-bash}
+
+~~~
+Clavibacter_M_C_1874630.22-contigs.fa                   Clavibacter_M_N_31963.54-contigs.fa
+Clavibacter_M_C_1874630.22-contigs.fa.fasta             Clavibacter_M_N_31963.54-contigs.fa.fasta
+Clavibacter_M_C_1874630.22-contigs.fa.fasta-contigs.db  Clavibacter_M_N_31963.54-contigs.fa.fasta-contigs.db
+Clavibacter_M_C_1874630.22-external-functions.txt       Clavibacter_M_N_31963.54-external-functions.txt
+Clavibacter_M_C_1874630.22-external-gene-calls.txt      Clavibacter_M_N_31963.54-external-gene-calls.txt
+Clavibacter_M_C_1874630.26-contigs.fa                   Clavibacter_M_N_31963.56-contigs.fa
+Clavibacter_M_C_1874630.26-contigs.fa.fasta             Clavibacter_M_N_31963.56-contigs.fa.fasta
+Clavibacter_M_C_1874630.26-contigs.fa.fasta-contigs.db  Clavibacter_M_N_31963.56-contigs.fa.fasta-contigs.db
+Clavibacter_M_C_1874630.26-external-functions.txt       Clavibacter_M_N_31963.56-external-functions.txt
+Clavibacter_M_C_1874630.26-external-gene-calls.txt      Clavibacter_M_N_31963.56-external-gene-calls.txt
+Clavibacter_M_I_33014.40-contigs.fa                     Clavibacter_M_S_31964.81-contigs.fa
+Clavibacter_M_I_33014.40-contigs.fa.fasta               Clavibacter_M_S_31964.81-contigs.fa.fasta
+Clavibacter_M_I_33014.40-contigs.fa.fasta-contigs.db    Clavibacter_M_S_31964.81-contigs.fa.fasta-contigs.db
+Clavibacter_M_I_33014.40-external-functions.txt         Clavibacter_M_S_31964.81-external-functions.txt
+Clavibacter_M_I_33014.40-external-gene-calls.txt        Clavibacter_M_S_31964.81-external-gene-calls.txt
+Clavibacter_M_I_33014.42-contigs.fa                     Clavibacter_M_S_31964.84-contigs.fa
+Clavibacter_M_I_33014.42-contigs.fa.fasta               Clavibacter_M_S_31964.84-contigs.fa.fasta
+Clavibacter_M_I_33014.42-contigs.fa.fasta-contigs.db    Clavibacter_M_S_31964.84-contigs.fa.fasta-contigs.db
+Clavibacter_M_I_33014.42-external-functions.txt         Clavibacter_M_S_31964.84-external-functions.txt
+Clavibacter_M_I_33014.42-external-gene-calls.txt        Clavibacter_M_S_31964.84-external-gene-calls.txt
+Clavibacter_M_M_443906.110-contigs.fa                   Clavibacter_M_T_31965.20-contigs.fa
+Clavibacter_M_M_443906.110-contigs.fa.fasta             Clavibacter_M_T_31965.20-contigs.fa.fasta
+Clavibacter_M_M_443906.110-contigs.fa.fasta-contigs.db  Clavibacter_M_T_31965.20-contigs.fa.fasta-contigs.db
+Clavibacter_M_M_443906.110-external-functions.txt       Clavibacter_M_T_31965.20-external-functions.txt
+Clavibacter_M_M_443906.110-external-gene-calls.txt      Clavibacter_M_T_31965.20-external-gene-calls.txt
+Clavibacter_M_N_1097677.33-contigs.fa                   Clavibacter_M_T_31965.24-contigs.fa
+Clavibacter_M_N_1097677.33-contigs.fa.fasta             Clavibacter_M_T_31965.24-contigs.fa.fasta
+Clavibacter_M_N_1097677.33-contigs.fa.fasta-contigs.db  Clavibacter_M_T_31965.24-contigs.fa.fasta-contigs.db
+Clavibacter_M_N_1097677.33-external-functions.txt       Clavibacter_M_T_31965.24-external-functions.txt
+Clavibacter_M_N_1097677.33-external-gene-calls.txt      Clavibacter_M_T_31965.24-external-gene-calls.txt
+~~~
+{: .output}
