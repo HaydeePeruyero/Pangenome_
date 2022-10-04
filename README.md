@@ -1125,24 +1125,23 @@ Lista de cluster directorios de COG y OMCL
 Directorios:
 
 ~~~
-data_get_homologues/2692915_f0_0taxa_algCOG_e0_
-data_get_homologues/2692915_f0_0taxa_algOMCL_e0_
+data_get_homologues/1874630_f0_0taxa_algCOG_e0_.cluster_list  
+data_get_homologues/1874630_f0_0taxa_algOMCL_e0_.cluster_list
 ~~~
 {: .output}
 
 
 ~~~
 compare_clusters.pl -o alg_intersection -m -T -d \
-data_get_homologues/2692915_f0_0taxa_algCOG_e0_,\
-data_get_homologues/2692915_f0_0taxa_algOMCL_e0_
+data_get_homologues/1874630_f0_0taxa_algCOG_e0_,\
+data_get_homologues/1874630_f0_0taxa_algOMCL_e0_
 ~~~
 {: .language-bash}
 
 
 Salida (revisar)
 
-~~~
-# /opt/anaconda3/envs/Pangenomics_Global/bin/compare_clusters.pl -d data_get_homologues/2692915_f0_0taxa_algCOG_e0_,data_get_homologues/2692915_f0_0taxa_algOMCL_e0_ -o alg_intersection -n 0 -m 1 -t 0 -I  -r 0 -s 0 -x 0 -T 1
+~~~# /opt/anaconda3/envs/Pangenomics_Global/bin/compare_clusters.pl -d data_get_homologues/1874630_f0_0taxa_algCOG_e0_,data_get_homologues/1874630_f0_0taxa_algOMCL_e0_ -o alg_intersection -n 0 -m 1 -t 0 -I  -r 0 -s 0 -x 0 -T 1
 
 # output directory: alg_intersection
 # WARNING: output directory alg_intersection already exists, note that you might be mixing clusters from previous runs
@@ -1150,54 +1149,73 @@ Salida (revisar)
 
 # number of input cluster directories = 2
 
-# parsing clusters in data_get_homologues/2692915_f0_0taxa_algCOG_e0_ ...
-# cluster_list in place, will parse it (data_get_homologues/2692915_f0_0taxa_algCOG_e0_.cluster_list)
-# WARNING: cluster 9113_fig-287862.3.peg.2940.faa duplicates 8962_fig-287862.3.peg.3636.faa
-# WARNING: cluster 11014_fig-287862.3.peg.3798.faa duplicates 10499_fig-287862.3.peg.3259.faa
-# WARNING: cluster 12285_fig-287862.3.peg.5187.faa duplicates 10499_fig-287862.3.peg.3259.faa
-# WARNING: cluster 13279_fig-287862.3.peg.6426.faa duplicates 10499_fig-287862.3.peg.3259.faa
-# WARNING: cluster 13396_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 14075_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 15342_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
-# WARNING: cluster 15444_fig-287862.3.peg.8233.faa duplicates 10499_fig-287862.3.peg.3259.faa
-# WARNING: cluster 16549_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 19255_fig-287862.3.peg.3033.faa duplicates 10273_fig-287862.3.peg.3033.faa
-# WARNING: cluster 19481_fig-287862.3.peg.3259.faa duplicates 10499_fig-287862.3.peg.3259.faa
-# WARNING: cluster 19996_fig-287862.3.peg.3798.faa duplicates 10499_fig-287862.3.peg.3259.faa
-# WARNING: cluster 21267_fig-287862.3.peg.5187.faa duplicates 10499_fig-287862.3.peg.3259.faa
-# WARNING: cluster 21758_fig-287862.3.peg.5746.faa duplicates 12776_fig-287862.3.peg.5746.faa
-# WARNING: cluster 22175_fig-287862.3.peg.6279.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 22261_fig-287862.3.peg.6426.faa duplicates 10499_fig-287862.3.peg.3259.faa
-# WARNING: cluster 22378_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 23057_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 23500_fig-287862.3.peg.7704.faa duplicates 14518_fig-287862.3.peg.7704.faa
-# WARNING: cluster 24324_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
-# WARNING: cluster 24426_fig-287862.3.peg.8233.faa duplicates 10499_fig-287862.3.peg.3259.faa
-# WARNING: cluster 25531_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 26163_fig-287862.3.peg.1549.faa duplicates 17181_fig-287862.3.peg.1549.faa
-# number of clusters = 11925 duplicated = 30
-# parsing clusters in data_get_homologues/2692915_f0_0taxa_algOMCL_e0_ ...
-# cluster_list in place, will parse it (data_get_homologues/2692915_f0_0taxa_algOMCL_e0_.cluster_list)
-# WARNING: cluster 9113_fig-287862.3.peg.2940.faa duplicates 8962_fig-287862.3.peg.3636.faa
-# WARNING: cluster 13396_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 14075_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 15342_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
-# WARNING: cluster 16549_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 19255_fig-287862.3.peg.3033.faa duplicates 10273_fig-287862.3.peg.3033.faa
-# WARNING: cluster 20785_fig-287862.3.peg.4705.faa duplicates 11803_fig-287862.3.peg.4705.faa
-# WARNING: cluster 21758_fig-287862.3.peg.5746.faa duplicates 12776_fig-287862.3.peg.5746.faa
-# WARNING: cluster 22175_fig-287862.3.peg.6279.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 22378_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 23057_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 23500_fig-287862.3.peg.7704.faa duplicates 14518_fig-287862.3.peg.7704.faa
-# WARNING: cluster 24324_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
-# WARNING: cluster 25531_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
-# WARNING: cluster 26163_fig-287862.3.peg.1549.faa duplicates 17181_fig-287862.3.peg.1549.faa
-# number of clusters = 12211 duplicated = 22
+# parsing clusters in data_get_homologues/1874630_f0_0taxa_algCOG_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/1874630_f0_0taxa_algCOG_e0_.cluster_list)
+# WARNING: cluster 6486_fig-1874630.26.peg.680.faa duplicates 3593_fig-1874630.22.peg.689.faa
+# WARNING: cluster 18479_fig-31964.84.peg.761.faa duplicates 16889_fig-31964.81.peg.2400.faa
+# WARNING: cluster 20602_fig-31964.84.peg.2884.faa duplicates 17380_fig-31964.81.peg.2891.faa
+# WARNING: cluster 24622_fig-31965.24.peg.620.faa duplicates 23650_fig-31965.20.peg.2706.faa
+# WARNING: cluster 25364_fig-31965.24.peg.1362.faa duplicates 22906_fig-31965.20.peg.1962.faa
+# WARNING: cluster 25449_fig-31965.24.peg.1447.faa duplicates 22821_fig-31965.20.peg.1877.faa
+# WARNING: cluster 25590_fig-31965.24.peg.1588.faa duplicates 22680_fig-31965.20.peg.1736.faa
+# WARNING: cluster 27593_fig-33014.40.peg.443.faa duplicates 3320_fig-1874630.22.peg.416.faa
+# WARNING: cluster 28536_fig-33014.40.peg.1386.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 28998_fig-33014.40.peg.1848.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 29012_fig-33014.40.peg.1862.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 29636_fig-33014.40.peg.2486.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 29972_fig-33014.40.peg.2822.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 30600_fig-33014.42.peg.344.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 30653_fig-33014.42.peg.397.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 30741_fig-33014.42.peg.485.faa duplicates 3320_fig-1874630.22.peg.416.faa
+# WARNING: cluster 31017_fig-33014.42.peg.761.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 31451_fig-33014.42.peg.1195.faa duplicates 28402_fig-33014.40.peg.1252.faa
+# WARNING: cluster 31468_fig-33014.42.peg.1212.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 31640_fig-33014.42.peg.1384.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 31990_fig-33014.42.peg.1734.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 32055_fig-33014.42.peg.1799.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 32557_fig-33014.42.peg.2301.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 32595_fig-33014.42.peg.2339.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 32610_fig-33014.42.peg.2354.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 32616_fig-33014.42.peg.2360.faa duplicates 27945_fig-33014.40.peg.795.faa
+# WARNING: cluster 32740_fig-33014.42.peg.2484.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 33109_fig-33014.42.peg.2853.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 33259_fig-33014.42.peg.3003.faa duplicates 27965_fig-33014.40.peg.815.faa
+# number of clusters = 5797 duplicated = 41
+# parsing clusters in data_get_homologues/1874630_f0_0taxa_algOMCL_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/1874630_f0_0taxa_algOMCL_e0_.cluster_list)
+# WARNING: cluster 6486_fig-1874630.26.peg.680.faa duplicates 3593_fig-1874630.22.peg.689.faa
+# WARNING: cluster 18479_fig-31964.84.peg.761.faa duplicates 16889_fig-31964.81.peg.2400.faa
+# WARNING: cluster 20602_fig-31964.84.peg.2884.faa duplicates 17380_fig-31964.81.peg.2891.faa
+# WARNING: cluster 24622_fig-31965.24.peg.620.faa duplicates 23650_fig-31965.20.peg.2706.faa
+# WARNING: cluster 25364_fig-31965.24.peg.1362.faa duplicates 22906_fig-31965.20.peg.1962.faa
+# WARNING: cluster 25449_fig-31965.24.peg.1447.faa duplicates 22821_fig-31965.20.peg.1877.faa
+# WARNING: cluster 25590_fig-31965.24.peg.1588.faa duplicates 22680_fig-31965.20.peg.1736.faa
+# WARNING: cluster 27593_fig-33014.40.peg.443.faa duplicates 3320_fig-1874630.22.peg.416.faa
+# WARNING: cluster 28536_fig-33014.40.peg.1386.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 28998_fig-33014.40.peg.1848.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 29012_fig-33014.40.peg.1862.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 29636_fig-33014.40.peg.2486.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 29972_fig-33014.40.peg.2822.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 30600_fig-33014.42.peg.344.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 30653_fig-33014.42.peg.397.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 30741_fig-33014.42.peg.485.faa duplicates 3320_fig-1874630.22.peg.416.faa
+# WARNING: cluster 31017_fig-33014.42.peg.761.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 31468_fig-33014.42.peg.1212.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 31640_fig-33014.42.peg.1384.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 31990_fig-33014.42.peg.1734.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 32055_fig-33014.42.peg.1799.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 32557_fig-33014.42.peg.2301.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 32595_fig-33014.42.peg.2339.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 32610_fig-33014.42.peg.2354.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 32616_fig-33014.42.peg.2360.faa duplicates 27945_fig-33014.40.peg.795.faa
+# WARNING: cluster 32740_fig-33014.42.peg.2484.faa duplicates 30471_fig-33014.42.peg.215.faa
+# WARNING: cluster 33109_fig-33014.42.peg.2853.faa duplicates 27965_fig-33014.40.peg.815.faa
+# WARNING: cluster 33259_fig-33014.42.peg.3003.faa duplicates 27965_fig-33014.40.peg.815.faa
+# number of clusters = 5741 duplicated = 39
 
 # duplicated list: alg_intersection/duplicated.cluster_list (please review)
 
-# intersection size = 11620 clusters
+# intersection size = 5545 clusters
 
 # intersection list = alg_intersection/intersection_t0.cluster_list
 
@@ -1211,12 +1229,12 @@ Salida (revisar)
 # pangenome_phylip tree = alg_intersection/pangenome_matrix_t0.phylip.ph
 # pangenome_phylip log = alg_intersection/pangenome_matrix_t0.phylip.log
 
-# input set: alg_intersection/2692915_f0_0taxa_algCOG_e0_.venn_t0.txt
-# input set: alg_intersection/2692915_f0_0taxa_algOMCL_e0_.venn_t0.txt
+# input set: alg_intersection/1874630_f0_0taxa_algCOG_e0_.venn_t0.txt
+# input set: alg_intersection/1874630_f0_0taxa_algOMCL_e0_.venn_t0.txt
 
 # Venn diagram = alg_intersection/venn_t0.pdf alg_intersection/venn_t0.svg
-# Venn region file: alg_intersection/unique_2692915_f0_0taxa_algCOG_e0_.venn_t0.txt (305)
-# Venn region file: alg_intersection/unique_2692915_f0_0taxa_algOMCL_e0_.venn_t0.txt (591)
+# Venn region file: alg_intersection/unique_1874630_f0_0taxa_algCOG_e0_.venn_t0.txt (252)
+# Venn region file: alg_intersection/unique_1874630_f0_0taxa_algOMCL_e0_.venn_t0.txt (196)
 ~~~
 {: .output}
 
@@ -1243,9 +1261,50 @@ No se pude hacer este análisis.
 ~~~
 # /opt/anaconda3/envs/Pangenomics_Global/bin/parse_pangenome_matrix.pl -m alg_intersection/pangenome_matrix_t0.tab -I  -A  -B  -a 0 -g 0 -e 0 -p  -s 1 -n 0 -l 0 -x 0 -P 100 -S 0
 
-# matrix contains 11620 clusters and 3 taxa
+# matrix contains 5545 clusters and 12 taxa
 
-# EXIT : need at least 5 taxa to perform -s analysis
+# cloud size: 2405 list: alg_intersection/pangenome_matrix_t0__cloud_list.txt
+# shell size: 1036 list: alg_intersection/pangenome_matrix_t0__shell_list.txt
+# soft core size: 2104 list: alg_intersection/pangenome_matrix_t0__softcore_list.txt
+# core size: 1983 (included in soft core) list: alg_intersection/pangenome_matrix_t0__core_list.txt
+
+# using default colors, defined in %COLORS
+
+# globals controlling R plots: $YLIMRATIO=1.2
+
+# shell bar plots: alg_intersection/pangenome_matrix_t0__shell.png , alg_intersection/pangenome_matrix_t0__shell.pdf , alg_intersection/pangenome_matrix_t0__shell.svg
+# shell circle plots: alg_intersection/pangenome_matrix_t0__shell_circle.png , alg_intersection/pangenome_matrix_t0__shell_circle.pdf , alg_intersection/pangenome_matrix_t0__shell_circle.svg
+
+# pan-genome size estimates (Snipen mixture model PMID:19691844): alg_intersection/pangenome_matrix_t0__shell_estimates.tab
+Core.size Pan.size BIC LogLikelihood
+2 components 1981 5670 27024.1575926017 -13499.1478184512
+3 components 1965 6237 20188.7483925674 -10072.8225665343
+4 components 1915 6398 19970.3574906973 -9955.0064636994
+5 components 1916 6399 19987.5841330026 -9954.99913295229
+6 components 0 6358 20012.9782730043 -9959.07555105332
+7 components 1919 6395 20022.1151548641 -9955.02334008346
+8 components 1914 6400 20039.3424850671 -9955.01635328517
+9 components 1915 6399 20057.0091991685 -9955.22905843608
+10 components 1600 6400 20074.0224465977 -9955.1150302509
+Sample 1983 5545 NA NA
+
+
+# occupancy stats:
+        cloud   shell   soft_core       core
+1097677.33.faa  99      581     2097    1983
+1874630.22.faa  244     443     2080    1983
+1874630.26.faa  192     446     2099    1983
+31963.54.faa    125     572     2094    1983
+31963.56.faa    91      574     2100    1983
+31964.81.faa    485     415     2103    1983
+31964.84.faa    480     418     2099    1983
+31965.20.faa    315     500     2102    1983
+31965.24.faa    370     506     2102    1983
+33014.40.faa    405     453     2085    1983
+33014.42.faa    420     465     2088    1983
+443906.110.faa  379     552     2078    1983
 ~~~
 {: .output}
+
+
 
