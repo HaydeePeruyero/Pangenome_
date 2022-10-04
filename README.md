@@ -801,4 +801,243 @@ find ~/get_homologues/sample_buch_fasta/. -name "*.faa" -exec ln -s {} . ';'
 ~~~
 {: .language-bash}
 
-Tiempo aproximado 2horas...
+Tiempo aproximado 5hr con 2 genomas de cada subespecie
+
+correr el segundo get_homologues.pl
+
+~~~
+~/get_homologues/sim2_g$ get_homologues.pl -d data_get -G
+~~~
+{: .language-bash}
+
+Resultado
+~~~
+# version 28042022
+# results_directory=/home/haydee/get_homologues/sim2_g/data_get_homologues
+# parameters: MAXEVALUEBLASTSEARCH=0.01 MAXPFAMSEQS=250 BATCHSIZE=100 KEEPSCNDHSPS=1
+# diamond job:0
+
+# checking input files...
+# 1097677.33.faa 2904
+# 1874630.22.faa 2902
+# 1874630.26.faa 2871
+# 31963.54.faa 2920
+# 31963.56.faa 2892
+# 31964.81.faa 3229
+# 31964.84.faa 3226
+# 31965.20.faa 3058
+# 31965.24.faa 3148
+# 33014.40.faa 3106
+# 33014.42.faa 3136
+# 443906.110.faa 3168
+
+# 12 genomes, 36560 sequences
+
+# taxa considered = 12 sequences = 36560 residues = 11513173 MIN_BITSCORE_SIM = 19.2
+
+# mask=1874630_f0_alltaxa_algCOG_e0_ (_algCOG)
+
+# skipped genome parsing (data_get_homologues/tmp/selected.genomes)
+
+
+# running BLAST searches ...
+# done
+
+
+# parsing file (COG)
+# parsing file (COG) finished
+
+# creating indexes, this might take some time (lines=1.74e+06) ...
+
+# construct_taxa_indexes: number of taxa found = 12
+# number of file addresses/BLAST queries = 3.7e+04
+
+# clustering orthologous sequences
+# checking lineage-specific expansions
+# making COGs
+# prunning COGs
+# done
+
+# looking for valid ORF clusters (n_of_taxa=12)...
+
+# number_of_clusters = 2013
+# cluster_list = data_get_homologues/1874630_f0_alltaxa_algCOG_e0_.cluster_list
+# cluster_directory = data_get_homologues/1874630_f0_alltaxa_algCOG_e0_
+
+# runtime: 39 wallclock secs ( 5.18 usr  0.14 sys + 13.24 cusr  3.83 csys = 22.39 CPU)
+# RAM use: 78.2 MB
+~~~
+{: .output}
+
+Tercer get_homologues.
+
+~~~
+~/get_homologues/sim2_g$ get_homologues.pl -d data_get -M
+~~~
+{: .language-bash}
+
+Resultado
+
+~~~
+...
+# identifying inparalogs in 443906.110.faa
+# 36 sequences
+
+# running MCL (inflation=1.5) ...
+# running MCL finished
+
+# find_OMCL_clusters: parsing clusters (/home/haydee/get_homologues/sim2_g/data_get_homologues/tmp/all_ortho.mcl)
+
+
+# looking for valid ORF clusters (n_of_taxa=12)...
+
+
+# number_of_clusters = 2012
+# cluster_list = data_get_homologues/1874630_f0_alltaxa_algOMCL_e0_.cluster_list
+# cluster_directory = data_get_homologues/1874630_f0_alltaxa_algOMCL_e0_
+
+# runtime: 37 wallclock secs (32.59 usr  0.64 sys +  1.24 cusr  1.03 csys = 35.50 CPU)
+# RAM use: 128.4 MB
+~~~
+{: .output}
+
+
+Para listar los genomas de referencia
+~~~
+(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ ls -d data_get_homologues/*alltaxa*
+~~~
+{: .language-bash}
+
+~~~
+data_get_homologues//1874630_f0_alltaxa_algBDBH_e0_
+data_get_homologues//1874630_f0_alltaxa_algBDBH_e0_.cluster_list
+data_get_homologues//1874630_f0_alltaxa_algCOG_e0_
+data_get_homologues//1874630_f0_alltaxa_algCOG_e0_.cluster_list
+data_get_homologues//1874630_f0_alltaxa_algOMCL_e0_
+data_get_homologues//1874630_f0_alltaxa_algOMCL_e0_.cluster_list
+~~~
+{: .output}
+
+
+Obtener la intersección entre los clusters.
+
+~~~
+(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ compare_clusters.pl -o alg_intersection -d \
+data_get_homologues//1874630_f0_alltaxa_algBDBH_e0_,\
+data_get_homologues//1874630_f0_alltaxa_algCOG_e0_,\
+data_get_homologues//1874630_f0_alltaxa_algOMCL_e0_
+~~~
+{: .language-bash}
+
+Resultado
+
+~~~
+# output directory: alg_intersection
+
+# number of input cluster directories = 3
+
+# parsing clusters in data_get_homologues/1874630_f0_alltaxa_algBDBH_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/1874630_f0_alltaxa_algBDBH_e0_.cluster_list)
+# number of clusters = 2006 duplicated = 0
+# parsing clusters in data_get_homologues/1874630_f0_alltaxa_algCOG_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/1874630_f0_alltaxa_algCOG_e0_.cluster_list)
+# number of clusters = 2013 duplicated = 0
+# parsing clusters in data_get_homologues/1874630_f0_alltaxa_algOMCL_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/1874630_f0_alltaxa_algOMCL_e0_.cluster_list)
+# number of clusters = 2012 duplicated = 0
+
+# duplicated list: alg_intersection/duplicated.cluster_list (please review)
+
+# intersection size = 1968 clusters
+
+# intersection list = alg_intersection/intersection_t0.cluster_list
+
+# input set: alg_intersection/1874630_f0_alltaxa_algBDBH_e0_.venn_t0.txt
+# input set: alg_intersection/1874630_f0_alltaxa_algCOG_e0_.venn_t0.txt
+# input set: alg_intersection/1874630_f0_alltaxa_algOMCL_e0_.venn_t0.txt
+
+# Venn diagram = alg_intersection/venn_t0.pdf alg_intersection/venn_t0.svg
+# Venn region file: alg_intersection/unique_1874630_f0_alltaxa_algBDBH_e0_.venn_t0.txt (20)
+# Venn region file: alg_intersection/unique_1874630_f0_alltaxa_algCOG_e0_.venn_t0.txt (26)
+# Venn region file: alg_intersection/unique_1874630_f0_alltaxa_algOMCL_e0_.venn_t0.txt (15)
+# Venn region file: alg_intersection/intersection_1874630_f0_alltaxa_algBDBH_e0__1874630_f0_alltaxa_algCOG_e0_.venn_t0.txt (4)
+# Venn region file: alg_intersection/intersection_1874630_f0_alltaxa_algBDBH_e0__1874630_f0_alltaxa_algOMCL_e0_.venn_t0.txt (14)
+# Venn region file: alg_intersection/intersection_1874630_f0_alltaxa_algCOG_e0__1874630_f0_alltaxa_algOMCL_e0_.venn_t0.txt (15)
+~~~
+{: .output}
+
+En el diagrama de Venn se puede observar los genes que están en el core (4519).
+
+![Diagrama de Venn con el número de genes en cada cluster](images/venn_t0.svg)
+
+---
+
+# Obtener la matriz de Pangenoma
+
+~~~
+(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ get_homologues.pl -d data_get -t 0 -M
+~~~
+{: .language-bash}
+
+Salida:
+
+~~~
+# version 28042022
+# results_directory=/home/haydee/get_homologues/sim2_g/data_get_homologues
+# parameters: MAXEVALUEBLASTSEARCH=0.01 MAXPFAMSEQS=250 BATCHSIZE=100 KEEPSCNDHSPS=1
+# diamond job:0
+
+# checking input files...
+# 1097677.33.faa 2904
+# 1874630.22.faa 2902
+# 1874630.26.faa 2871
+# 31963.54.faa 2920
+# 31963.56.faa 2892
+# 31964.81.faa 3229
+# 31964.84.faa 3226
+# 31965.20.faa 3058
+# 31965.24.faa 3148
+# 33014.40.faa 3106
+# 33014.42.faa 3136
+# 443906.110.faa 3168
+
+# 12 genomes, 36560 sequences
+
+# taxa considered = 12 sequences = 36560 residues = 11513173 MIN_BITSCORE_SIM = 19.2
+
+# mask=1874630_f0_0taxa_algOMCL_e0_ (_algOMCL)
+
+# skipped genome parsing (data_get_homologues/tmp/selected.genomes)
+
+# skip BLAST searches and parsing
+
+# WARNING: please remove/rename results directory:
+# '/home/haydee/get_homologues/sim2_g/data_get_homologues/'
+# if you change the sequences in your .gbk/.faa files or want to re-run
+
+# creating indexes, this might take some time (lines=1.74e+06) ...
+
+# construct_taxa_indexes: number of taxa found = 12
+# number of file addresses/BLAST queries = 3.7e+04
+
+# clustering orthologous sequences
+# find_OMCL_clusters: re-using previous results (same parameters)
+
+# find_OMCL_clusters: parsing clusters (/home/haydee/get_homologues/sim2_g/data_get_homologues/tmp/all_ortho.mcl)
+
+
+# add_unmatched_singletons : 1241 sequences, 12 taxa
+
+
+# looking for valid ORF clusters (n_of_taxa=0)...
+
+
+# number_of_clusters = 5780
+# cluster_list = data_get_homologues/1874630_f0_0taxa_algOMCL_e0_.cluster_list
+# cluster_directory = data_get_homologues/1874630_f0_0taxa_algOMCL_e0_
+
+# runtime: 11 wallclock secs ( 5.83 usr  0.16 sys +  0.31 cusr  0.03 csys =  6.33 CPU)
+# RAM use: 61.8 MB
+
+~~~
+{: .output}
