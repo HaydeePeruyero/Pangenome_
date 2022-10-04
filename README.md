@@ -791,7 +791,7 @@ No se pude hacer este análisis.
 {: .output}
 
 
-=======
+
 
 # Clavibacter
 
@@ -968,7 +968,7 @@ Resultado
 
 En el diagrama de Venn se puede observar los genes que están en el core (4519).
 
-![Diagrama de Venn con el número de genes en cada cluster](images/venn_t0.svg)
+![Diagrama de Venn con el número de genes en cada cluster](images/venn_t0_Clavi.svg)
 
 ---
 
@@ -1041,3 +1041,211 @@ Salida:
 
 ~~~
 {: .output}
+
+
+Segundo algoritmo
+
+~~~
+(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ get_homologues.pl -d data_get -t 0 -G
+~~~
+{: .language-bash}
+
+Salida
+
+~~~
+# /opt/anaconda3/envs/Pangenomics_Global/bin/get_homologues.pl -i 0 -d data_get -o 0 -X 0 -e 0 -f 0 -r 0 -t 0 -c 0 -z 0 -I 0 -m local -n 2 -M 0 -G 1 -p 0 -C 75 -S 1 -E 1e-05 -F 1.5 -N 0 -B 50 -b 0 -s 0 -D 0 -g 0 -a '0' -x 0 -R 0 -A 0 -P 0
+
+# version 28042022
+# results_directory=/home/haydee/get_homologues/sim2_g/data_get_homologues
+# parameters: MAXEVALUEBLASTSEARCH=0.01 MAXPFAMSEQS=250 BATCHSIZE=100 KEEPSCNDHSPS=1
+# diamond job:0
+
+# checking input files...
+# 1097677.33.faa 2904
+# 1874630.22.faa 2902
+# 1874630.26.faa 2871
+# 31963.54.faa 2920
+# 31963.56.faa 2892
+# 31964.81.faa 3229
+# 31964.84.faa 3226
+# 31965.20.faa 3058
+# 31965.24.faa 3148
+# 33014.40.faa 3106
+# 33014.42.faa 3136
+# 443906.110.faa 3168
+
+# 12 genomes, 36560 sequences
+
+# taxa considered = 12 sequences = 36560 residues = 11513173 MIN_BITSCORE_SIM = 19.2
+
+# mask=1874630_f0_0taxa_algCOG_e0_ (_algCOG)
+
+# skipped genome parsing (data_get_homologues/tmp/selected.genomes)
+
+# skip BLAST searches and parsing
+
+# WARNING: please remove/rename results directory:
+# '/home/haydee/get_homologues/sim2_g/data_get_homologues/'
+# if you change the sequences in your .gbk/.faa files or want to re-run
+
+# creating indexes, this might take some time (lines=1.74e+06) ...
+
+# construct_taxa_indexes: number of taxa found = 12
+# number of file addresses/BLAST queries = 3.7e+04
+
+# clustering orthologous sequences
+# prunning COGs
+# done
+
+# add_unmatched_singletons : 14 sequences, 5 taxa
+
+
+# looking for valid ORF clusters (n_of_taxa=0)...
+
+
+# number_of_clusters = 5838
+# cluster_list = data_get_homologues/1874630_f0_0taxa_algCOG_e0_.cluster_list
+# cluster_directory = data_get_homologues/1874630_f0_0taxa_algCOG_e0_
+
+# runtime:  8 wallclock secs ( 6.35 usr  0.19 sys +  0.32 cusr  0.04 csys =  6.90 CPU)
+# RAM use: 78.4 MB
+~~~
+{: .output}
+
+
+Falta todo esto
+
+Lista de cluster directorios de COG y OMCL
+
+~~~
+(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ ls -d data_get_homologues/*0taxa*
+~~~
+{: .language-bash}
+
+Directorios:
+
+~~~
+data_get_homologues/2692915_f0_0taxa_algCOG_e0_
+data_get_homologues/2692915_f0_0taxa_algOMCL_e0_
+~~~
+{: .output}
+
+
+~~~
+compare_clusters.pl -o alg_intersection -m -T -d \
+data_get_homologues/2692915_f0_0taxa_algCOG_e0_,\
+data_get_homologues/2692915_f0_0taxa_algOMCL_e0_
+~~~
+{: .language-bash}
+
+
+Salida (revisar)
+
+~~~
+# /opt/anaconda3/envs/Pangenomics_Global/bin/compare_clusters.pl -d data_get_homologues/2692915_f0_0taxa_algCOG_e0_,data_get_homologues/2692915_f0_0taxa_algOMCL_e0_ -o alg_intersection -n 0 -m 1 -t 0 -I  -r 0 -s 0 -x 0 -T 1
+
+# output directory: alg_intersection
+# WARNING: output directory alg_intersection already exists, note that you might be mixing clusters from previous runs
+
+
+# number of input cluster directories = 2
+
+# parsing clusters in data_get_homologues/2692915_f0_0taxa_algCOG_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/2692915_f0_0taxa_algCOG_e0_.cluster_list)
+# WARNING: cluster 9113_fig-287862.3.peg.2940.faa duplicates 8962_fig-287862.3.peg.3636.faa
+# WARNING: cluster 11014_fig-287862.3.peg.3798.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 12285_fig-287862.3.peg.5187.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 13279_fig-287862.3.peg.6426.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 13396_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 14075_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 15342_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 15444_fig-287862.3.peg.8233.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 16549_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 19255_fig-287862.3.peg.3033.faa duplicates 10273_fig-287862.3.peg.3033.faa
+# WARNING: cluster 19481_fig-287862.3.peg.3259.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 19996_fig-287862.3.peg.3798.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 21267_fig-287862.3.peg.5187.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 21758_fig-287862.3.peg.5746.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 22175_fig-287862.3.peg.6279.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 22261_fig-287862.3.peg.6426.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 22378_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 23057_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 23500_fig-287862.3.peg.7704.faa duplicates 14518_fig-287862.3.peg.7704.faa
+# WARNING: cluster 24324_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 24426_fig-287862.3.peg.8233.faa duplicates 10499_fig-287862.3.peg.3259.faa
+# WARNING: cluster 25531_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 26163_fig-287862.3.peg.1549.faa duplicates 17181_fig-287862.3.peg.1549.faa
+# number of clusters = 11925 duplicated = 30
+# parsing clusters in data_get_homologues/2692915_f0_0taxa_algOMCL_e0_ ...
+# cluster_list in place, will parse it (data_get_homologues/2692915_f0_0taxa_algOMCL_e0_.cluster_list)
+# WARNING: cluster 9113_fig-287862.3.peg.2940.faa duplicates 8962_fig-287862.3.peg.3636.faa
+# WARNING: cluster 13396_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 14075_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 15342_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 16549_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 19255_fig-287862.3.peg.3033.faa duplicates 10273_fig-287862.3.peg.3033.faa
+# WARNING: cluster 20785_fig-287862.3.peg.4705.faa duplicates 11803_fig-287862.3.peg.4705.faa
+# WARNING: cluster 21758_fig-287862.3.peg.5746.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 22175_fig-287862.3.peg.6279.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 22378_fig-287862.3.peg.6543.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 23057_fig-287862.3.peg.7261.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 23500_fig-287862.3.peg.7704.faa duplicates 14518_fig-287862.3.peg.7704.faa
+# WARNING: cluster 24324_fig-287862.3.peg.8131.faa duplicates 12776_fig-287862.3.peg.5746.faa
+# WARNING: cluster 25531_fig-287862.3.peg.8694.faa duplicates 13193_fig-287862.3.peg.6279.faa
+# WARNING: cluster 26163_fig-287862.3.peg.1549.faa duplicates 17181_fig-287862.3.peg.1549.faa
+# number of clusters = 12211 duplicated = 22
+
+# duplicated list: alg_intersection/duplicated.cluster_list (please review)
+
+# intersection size = 11620 clusters
+
+# intersection list = alg_intersection/intersection_t0.cluster_list
+
+# pangenome_file = alg_intersection/pangenome_matrix_t0.tab transposed = alg_intersection/pangenome_matrix_t0.tr.tab
+# pangenome_genes = alg_intersection/pangenome_matrix_genes_t0.tab transposed = alg_intersection/pangenome_matrix_genes_t0.tr.tab
+# pangenome_phylip file = alg_intersection/pangenome_matrix_t0.phylip
+# pangenome_FASTA file = alg_intersection/pangenome_matrix_t0.fasta
+# pangenome CSV file (Scoary) = alg_intersection/pangenome_matrix_t0.tr.csv
+
+# parsimony results by PARS (PHYLIP suite, http://evolution.genetics.washington.edu/phylip/doc/pars.html):
+# pangenome_phylip tree = alg_intersection/pangenome_matrix_t0.phylip.ph
+# pangenome_phylip log = alg_intersection/pangenome_matrix_t0.phylip.log
+
+# input set: alg_intersection/2692915_f0_0taxa_algCOG_e0_.venn_t0.txt
+# input set: alg_intersection/2692915_f0_0taxa_algOMCL_e0_.venn_t0.txt
+
+# Venn diagram = alg_intersection/venn_t0.pdf alg_intersection/venn_t0.svg
+# Venn region file: alg_intersection/unique_2692915_f0_0taxa_algCOG_e0_.venn_t0.txt (305)
+# Venn region file: alg_intersection/unique_2692915_f0_0taxa_algOMCL_e0_.venn_t0.txt (591)
+~~~
+{: .output}
+
+
+#Plot core y Pangenome cluster del algoritmo BDBH
+
+~~~
+(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ plot_pancore_matrix.pl -i data_get_homologues/pan_genome_algBDBH.tab 
+~~~
+{: .language-bash}
+
+~~~
+# /opt/anaconda3/envs/Pangenomics_Global/bin/plot_pancore_matrix.pl -i data_get_homologues/pan_genome_algBDBH.tab -f core_Tettelin -F 0.80 -a 
+# outfiles: data_get_homologues/pan_genome_algBDBH.tab_core_Tettelin.log , data_get_homologues/pan_genome_algBDBH.tab_core_Tettelin.png , data_get_homologues/pan_genome_algBDBH.tab_core_Tettelin.pdf , data_get_homologues/pan_genome_algBDBH.tab_core_Tettelin.svg
+~~~
+{: .output}
+
+No se pude hacer este análisis.
+~~~
+(Pangenomics_Global) alumno5@betterlabub:~/Haydee$ parse_pangenome_matrix.pl -m alg_intersection/pangenome_matrix_t0.tab -s
+~~~
+{: .language-bash}
+
+~~~
+# /opt/anaconda3/envs/Pangenomics_Global/bin/parse_pangenome_matrix.pl -m alg_intersection/pangenome_matrix_t0.tab -I  -A  -B  -a 0 -g 0 -e 0 -p  -s 1 -n 0 -l 0 -x 0 -P 100 -S 0
+
+# matrix contains 11620 clusters and 3 taxa
+
+# EXIT : need at least 5 taxa to perform -s analysis
+~~~
+{: .output}
+
