@@ -1806,3 +1806,233 @@ Clavibacter_M_N_1097677.33-external-functions.txt       Clavibacter_M_T_31965.24
 Clavibacter_M_N_1097677.33-external-gene-calls.txt      Clavibacter_M_T_31965.24-external-gene-calls.txt
 ~~~
 {: .output}
+
+
+Paso 4: 
+
+~~~
+ls *.fa | cut -d '-' -f1 | while read line; do echo $line$'\t'$line-contigs.db >>external-genomes.txt; done
+head external-genomes.txt
+~~~
+{: .language-bash}
+
+~~~
+Clavibacter_M_C_1874630.22      Clavibacter_M_C_1874630.22-contigs.db
+Clavibacter_M_C_1874630.26      Clavibacter_M_C_1874630.26-contigs.db
+Clavibacter_M_I_33014.40        Clavibacter_M_I_33014.40-contigs.db
+Clavibacter_M_I_33014.42        Clavibacter_M_I_33014.42-contigs.db
+Clavibacter_M_M_443906.110      Clavibacter_M_M_443906.110-contigs.db
+Clavibacter_M_N_1097677.33      Clavibacter_M_N_1097677.33-contigs.db
+Clavibacter_M_N_31963.54        Clavibacter_M_N_31963.54-contigs.db
+Clavibacter_M_N_31963.56        Clavibacter_M_N_31963.56-contigs.db
+Clavibacter_M_S_31964.81        Clavibacter_M_S_31964.81-contigs.db
+Clavibacter_M_S_31964.84        Clavibacter_M_S_31964.84-contigs.db
+~~~
+{: .output}
+
+Paso 5
+
+~~~
+nano external-genomes.txt
+head external-genomes.txt
+~~~
+{: .language-bash}
+
+Modificar headers y guardar con ctrl+X y enter
+
+~~~
+name    contigs_db_path
+Clavibacter_M_C_1874630.22      Clavibacter_M_C_1874630.22-contigs.db
+Clavibacter_M_C_1874630.26      Clavibacter_M_C_1874630.26-contigs.db
+Clavibacter_M_I_33014.40        Clavibacter_M_I_33014.40-contigs.db
+Clavibacter_M_I_33014.42        Clavibacter_M_I_33014.42-contigs.db
+Clavibacter_M_M_443906.110      Clavibacter_M_M_443906.110-contigs.db
+Clavibacter_M_N_1097677.33      Clavibacter_M_N_1097677.33-contigs.db
+Clavibacter_M_N_31963.54        Clavibacter_M_N_31963.54-contigs.db
+Clavibacter_M_N_31963.56        Clavibacter_M_N_31963.56-contigs.db
+Clavibacter_M_S_31964.81        Clavibacter_M_S_31964.81-contigs.db
+~~~
+{: .output}
+
+Paso 6:
+
+~~~
+rename s'/.fa.fasta-contigs.db/.db/' *db
+ls *.db
+~~~
+{: .language-bash}
+
+~~~
+Clavibacter_M_C_1874630.22-contigs.db  Clavibacter_M_M_443906.110-contigs.db  Clavibacter_M_S_31964.81-contigs.db
+Clavibacter_M_C_1874630.26-contigs.db  Clavibacter_M_N_1097677.33-contigs.db  Clavibacter_M_S_31964.84-contigs.db
+Clavibacter_M_I_33014.40-contigs.db    Clavibacter_M_N_31963.54-contigs.db    Clavibacter_M_T_31965.20-contigs.db
+Clavibacter_M_I_33014.42-contigs.db    Clavibacter_M_N_31963.56-contigs.db    Clavibacter_M_T_31965.24-contigs.db
+~~~
+{: .output}
+
+Paso 7:
+~~~
+ls *contigs.db | while read line; do anvi-run-hmms -c $line; done
+~~~
+{: .language-bash}
+
+Marco ciertos warnings
+~~~
+                                                                                                                              
+WARNING
+===============================================
+SequencesForHMMHits class here. The current database (at
+Clavibacter_M_T_31965.24-contigs.db) contains 0 HMM hits, at least within the
+HMM sources or splits that were requested. It might not be a problem for your
+case, but we just thought you should know, in case it is. So there you have it.
+
+
+HMM Profiling for Ribosomal_RNA_16S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_16S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /tmp/tmp9ccm96y2/Ribosomal_RNA_16S.hmm
+Number of genes in HMM model .................: 3
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /tmp/tmp6q52f89d
+Log file for thread 0 ........................: /tmp/tmp6q52f89d/RNA_contig_sequences.fa.0_log
+Done 🎊                                                                                                                        
+
+Number of raw hits in table file .............: 4                                                                             
+Number of weak hits removed by HMMER parser ..: 0
+Number of hits in annotation dict  ...........: 4
+Pruned .......................................: 2 out of 4 hits were removed due to redundancy
+Gene calls added to db .......................: 2 (from source "Ribosomal_RNA_16S")                                           
+                                                                                                                              
+HMM Profiling for Archaea_76
+===============================================
+Reference ....................................: Lee, https://doi.org/10.1093/bioinformatics/btz188
+Kind .........................................: singlecopy
+Alphabet .....................................: AA
+Context ......................................: GENE
+Domain .......................................: archaea
+HMM model path ...............................: /tmp/tmp9ccm96y2/Archaea_76.hmm
+Number of genes in HMM model .................: 76
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: hmmscan
+Temporary work dir ...........................: /tmp/tmp38p4ze5b
+Log file for thread 0 ........................: /tmp/tmp38p4ze5b/AA_gene_sequences.fa.0_log
+Done 🎊                                                                                                                        
+
+Number of raw hits in table file .............: 33                                                                            
+Number of weak hits removed by HMMER parser ..: 0
+Number of hits in annotation dict  ...........: 33
+                                                                                                                              
+HMM Profiling for Ribosomal_RNA_28S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_28S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /tmp/tmp9ccm96y2/Ribosomal_RNA_28S.hmm
+Number of genes in HMM model .................: 1
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /tmp/tmp6q52f89d
+Log file for thread 0 ........................: /tmp/tmp6q52f89d/RNA_contig_sequences.fa.0_log
+Done 🎊                                                                                                                        
+
+Number of raw hits in table file .............: 0                                                                             
+
+* The HMM source 'Ribosomal_RNA_28S' returned 0 hits. SAD (but it's stil OK).
+                                                                                                                              
+HMM Profiling for Ribosomal_RNA_18S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_18S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /tmp/tmp9ccm96y2/Ribosomal_RNA_18S.hmm
+Number of genes in HMM model .................: 1
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /tmp/tmp6q52f89d
+Log file for thread 0 ........................: /tmp/tmp6q52f89d/RNA_contig_sequences.fa.0_log
+Done 🎊                                                                                                                        
+
+Number of raw hits in table file .............: 0                                                                             
+
+* The HMM source 'Ribosomal_RNA_18S' returned 0 hits. SAD (but it's stil OK).
+                                                                                                                              
+HMM Profiling for Protista_83
+===============================================
+Reference ....................................: Delmont, http://merenlab.org/delmont-euk-scgs
+Kind .........................................: singlecopy
+Alphabet .....................................: AA
+Context ......................................: GENE
+Domain .......................................: eukarya
+HMM model path ...............................: /tmp/tmp9ccm96y2/Protista_83.hmm
+Number of genes in HMM model .................: 83
+Noise cutoff term(s) .........................: -E 1e-25
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: hmmscan
+Temporary work dir ...........................: /tmp/tmp38p4ze5b
+Log file for thread 0 ........................: /tmp/tmp38p4ze5b/AA_gene_sequences.fa.0_log
+Done 🎊                                                                                                                        
+
+Number of raw hits in table file .............: 5                                                                             
+Number of weak hits removed by HMMER parser ..: 0
+Number of hits in annotation dict  ...........: 5
+                                                                                                                              
+HMM Profiling for Ribosomal_RNA_23S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_23S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /tmp/tmp9ccm96y2/Ribosomal_RNA_23S.hmm
+Number of genes in HMM model .................: 2
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /tmp/tmp6q52f89d
+Log file for thread 0 ........................: /tmp/tmp6q52f89d/RNA_contig_sequences.fa.0_log
+Done 🎊                                                                                                                        
+
+Number of raw hits in table file .............: 4                                                                             
+Number of weak hits removed by HMMER parser ..: 0
+Number of hits in annotation dict  ...........: 4
+Pruned .......................................: 2 out of 4 hits were removed due to redundancy
+Gene calls added to db .......................: 2 (from source "Ribosomal_RNA_23S")                                           
+                                                                                                                              
+✓ anvi-run-hmms took 0:00:16.287486
+~~~
+{: .output}
+
+Paso 8:
+~~~
+anvi-gen-genomes-storage -e external-genomes.txt -o CLAVIBACTER_GENOMES.db
+~~~
+{: .language-bash}
+
+~~~
+WARNING
+===============================================
+None of your genomes seem to have any functional annotation. No biggie. Things
+will continue to work. But then your genomes have no functional annotation. SAD.
+
+Internal genomes .............................: 0 have been initialized.                                                      
+External genomes .............................: 12 found.                                                                     
+[05 Oct 22 10:17:57 Sanity checks] Checking genome names ..                                                                   
+
+Config Error: Well, the genome name "Clavibacter_M_C_1874630.22" contains characters that  
+              anvi'o does not like :/ Please limit the characters to ASCII letters, digits,
+              and the underscore ('_') character.
+~~~
+{: .output}
