@@ -2441,3 +2441,11 @@ anvi-get-sequences-for-gene-clusters -p CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db
                                        -o better_core.fa
 ~~~
 {: .language-bash}
+
+
+~~~
+anvi-summarize -p CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db \
+                 -g CLAVIBACTER_GENOMES.db \
+                 -C collection \
+                 -o PROJECT-SUMMARY
+~~~
