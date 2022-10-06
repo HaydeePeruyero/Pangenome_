@@ -2015,6 +2015,47 @@ Gene calls added to db .......................: 2 (from source "Ribosomal_RNA_23
 ~~~
 {: .output}
 
+Paso 7-2
+~~~
+rename s'/\./_/' *
+~~~
+{: .language-bash}
+
+~~~
+Clavibacter_M_C_1874630_22-contigs.db               Clavibacter_M_N_31963_54-contigs.fa
+Clavibacter_M_C_1874630_22-contigs.fa               Clavibacter_M_N_31963_54-contigs.fa.fasta
+Clavibacter_M_C_1874630_22-contigs.fa.fasta         Clavibacter_M_N_31963_54-external-functions.txt
+Clavibacter_M_C_1874630_22-external-functions.txt   Clavibacter_M_N_31963_54-external-gene-calls.txt
+Clavibacter_M_C_1874630_22-external-gene-calls.txt  Clavibacter_M_N_31963_56-contigs.db
+Clavibacter_M_C_1874630_26-contigs.db               Clavibacter_M_N_31963_56-contigs.fa
+Clavibacter_M_C_1874630_26-contigs.fa               Clavibacter_M_N_31963_56-contigs.fa.fasta
+Clavibacter_M_C_1874630_26-contigs.fa.fasta         Clavibacter_M_N_31963_56-external-functions.txt
+Clavibacter_M_C_1874630_26-external-functions.txt   Clavibacter_M_N_31963_56-external-gene-calls.txt
+Clavibacter_M_C_1874630_26-external-gene-calls.txt  Clavibacter_M_S_31964_81-contigs.db
+Clavibacter_M_I_33014_40-contigs.db                 Clavibacter_M_S_31964_81-contigs.fa
+Clavibacter_M_I_33014_40-contigs.fa                 Clavibacter_M_S_31964_81-contigs.fa.fasta
+Clavibacter_M_I_33014_40-contigs.fa.fasta           Clavibacter_M_S_31964_81-external-functions.txt
+Clavibacter_M_I_33014_40-external-functions.txt     Clavibacter_M_S_31964_81-external-gene-calls.txt
+Clavibacter_M_I_33014_40-external-gene-calls.txt    Clavibacter_M_S_31964_84-contigs.db
+Clavibacter_M_I_33014_42-contigs.db                 Clavibacter_M_S_31964_84-contigs.fa
+Clavibacter_M_I_33014_42-contigs.fa                 Clavibacter_M_S_31964_84-contigs.fa.fasta
+Clavibacter_M_I_33014_42-contigs.fa.fasta           Clavibacter_M_S_31964_84-external-functions.txt
+Clavibacter_M_I_33014_42-external-functions.txt     Clavibacter_M_S_31964_84-external-gene-calls.txt
+Clavibacter_M_I_33014_42-external-gene-calls.txt    Clavibacter_M_T_31965_20-contigs.db
+Clavibacter_M_M_443906_110-contigs.db               Clavibacter_M_T_31965_20-contigs.fa
+Clavibacter_M_M_443906_110-contigs.fa               Clavibacter_M_T_31965_20-contigs.fa.fasta
+Clavibacter_M_M_443906_110-contigs.fa.fasta         Clavibacter_M_T_31965_20-external-functions.txt
+Clavibacter_M_M_443906_110-external-functions.txt   Clavibacter_M_T_31965_20-external-gene-calls.txt
+Clavibacter_M_M_443906_110-external-gene-calls.txt  Clavibacter_M_T_31965_24-contigs.db
+Clavibacter_M_N_1097677_33-contigs.db               Clavibacter_M_T_31965_24-contigs.fa
+Clavibacter_M_N_1097677_33-contigs.fa               Clavibacter_M_T_31965_24-contigs.fa.fasta
+Clavibacter_M_N_1097677_33-contigs.fa.fasta         Clavibacter_M_T_31965_24-external-functions.txt
+Clavibacter_M_N_1097677_33-external-functions.txt   Clavibacter_M_T_31965_24-external-gene-calls.txt
+Clavibacter_M_N_1097677_33-external-gene-calls.txt  external-genomes_txt
+Clavibacter_M_N_31963_54-contigs.db
+~~~
+{: .output}
+
 Paso 8:
 ~~~
 anvi-gen-genomes-storage -e external-genomes.txt -o CLAVIBACTER_GENOMES.db
@@ -2029,10 +2070,175 @@ will continue to work. But then your genomes have no functional annotation. SAD.
 
 Internal genomes .............................: 0 have been initialized.                                                      
 External genomes .............................: 12 found.                                                                     
-[05 Oct 22 10:17:57 Sanity checks] Checking genome names ..                                                                   
+                                                                                                                              
+JUST FYI
+===============================================
+Some of your genomes had gene calls identified by gene callers other than the
+anvi'o default, 'prodigal', and will not be processed. Use the `--debug` flag if
+this sounds important and you would like to see more of this message.
 
-Config Error: Well, the genome name "Clavibacter_M_C_1874630.22" contains characters that  
-              anvi'o does not like :/ Please limit the characters to ASCII letters, digits,
-              and the underscore ('_') character.
+                                                                                                                              
+* Clavibacter_M_C_1874630_22 is stored with 2,904 genes (1 of which were partial)
+* Clavibacter_M_C_1874630_26 is stored with 2,874 genes (1 of which were partial)                                             
+* Clavibacter_M_I_33014_40 is stored with 3,055 genes (1 of which were partial)                                               
+* Clavibacter_M_I_33014_42 is stored with 3,075 genes (1 of which were partial)                                               
+* Clavibacter_M_M_443906_110 is stored with 3,075 genes (1 of which were partial)                                             
+* Clavibacter_M_N_1097677_33 is stored with 2,905 genes (1 of which were partial)                                             
+* Clavibacter_M_N_31963_54 is stored with 2,915 genes (1 of which were partial)                                               
+* Clavibacter_M_N_31963_56 is stored with 2,903 genes (1 of which were partial)                                               
+* Clavibacter_M_S_31964_81 is stored with 3,095 genes (1 of which were partial)                                               
+* Clavibacter_M_S_31964_84 is stored with 3,100 genes (1 of which were partial)                                               
+* Clavibacter_M_T_31965_20 is stored with 3,047 genes (2 of which were partial)                                               
+* Clavibacter_M_T_31965_24 is stored with 3,125 genes (2 of which were partial)                                               
+
+The new genomes storage ......................: CLAVIBACTER_GENOMES.db (v7, signature: hash639a88c5)
+Number of genomes ............................: 12 (internal: 0, external: 12)
+Number of gene calls .........................: 36,073
+Number of partial gene calls .................: 14
 ~~~
 {: .output}
+
+
+~~~
+CLAVIBACTER_GENOMES.db                 Clavibacter_M_M_443906_110-contigs.db  Clavibacter_M_S_31964_84-contigs.db
+Clavibacter_M_C_1874630_22-contigs.db  Clavibacter_M_N_1097677_33-contigs.db  Clavibacter_M_T_31965_20-contigs.db
+Clavibacter_M_C_1874630_26-contigs.db  Clavibacter_M_N_31963_54-contigs.db    Clavibacter_M_T_31965_24-contigs.db
+Clavibacter_M_I_33014_40-contigs.db    Clavibacter_M_N_31963_56-contigs.db
+Clavibacter_M_I_33014_42-contigs.db    Clavibacter_M_S_31964_81-contigs.db
+~~~
+{: .output}
+
+Paso 9:
+
+~~~
+anvi-pan-genome -g CLAVIBACTER_GENOMES.db \
+                --project-name "PANGENOME-CLAVIBACTER" \
+                --output-dir CLAVIBACTER \
+                --num-threads 6 \
+                --minbit 0.5 \
+                --mcl-inflation 10 \
+                --use-ncbi-blast
+~~~
+{: .language-bash}
+
+~~~
+WARNING
+===============================================
+If you publish results from this workflow, please do not forget to cite DIAMOND
+(doi:10.1038/nmeth.3176), unless you use it with --use-ncbi-blast flag, and MCL
+(http://micans.org/mcl/ and doi:10.1007/978-1-61779-361-5_15)
+
+Functions found ..............................:                                                                               
+Genomes storage ..............................: Initialized (storage hash: hash639a88c5)                                      
+Num genomes in storage .......................: 12
+Num genomes will be used .....................: 12
+Pan database .................................: A new database,                                                               
+                                                /home/haydee/anvi-o/genome-db/CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db, has
+                                                been created.
+Exclude partial gene calls ...................: False
+
+AA sequences FASTA ...........................: /home/haydee/anvi-o/genome-db/CLAVIBACTER/combined-aas.fa                     
+
+Num AA sequences reported ....................: 36,073
+Num excluded gene calls ......................: 0
+Unique AA sequences FASTA ....................: /home/haydee/anvi-o/genome-db/CLAVIBACTER/combined-aas.fa.unique              
+
+WARNING
+===============================================
+You elected to use NCBI's `blastp` for amino acid sequence search. Running
+blastp will be significantly slower than DIAMOND, but in some cases, slightly
+more sensitive. We are unsure about whether the slight increase in sensitivity
+may justify significant increase in run time, but you are the boss.
+
+
+NCBI BLAST MAKEDB
+===============================================
+BLAST search db ..............................: /home/haydee/anvi-o/genome-db/CLAVIBACTER/combined-aas.fa.unique              
+
+NCBI BLAST SEARCH
+===============================================
+BLAST results ................................: /home/haydee/anvi-o/genome-db/CLAVIBACTER/blast-search-results.txt            
+
+MCL INPUT
+===============================================
+Min percent identity .........................: 0.0                                                                           
+Minbit .......................................: 0.5
+Filtered search results ......................: 433,826 edges stored                                                          
+MCL input ....................................: /home/haydee/anvi-o/genome-db/CLAVIBACTER/mcl-input.txt
+
+MCL
+===============================================
+MCL inflation ................................: 10.0
+MCL output ...................................: /home/haydee/anvi-o/genome-db/CLAVIBACTER/mcl-clusters.txt                    
+Number of MCL clusters .......................: 4,605
+                                                                                                                              
+CITATION
+===============================================
+The workflow you are using will likely use 'muscle' by Edgar,
+doi:10.1093/nar/gkh340 (http://www.drive5.com/muscle) to align your sequences.
+If you publish your findings, please do not forget to properly credit this tool.
+
+* Your pangenome is ready with a total of 4,605 gene clusters across 12 genomes 🎉  
+~~~
+{: .output}
+
+Paso 10:
+
+~~~
+anvi-display-pan -g CLAVIBACTER_GENOMES.db \
+    -p CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db
+~~~
+{: .language-bash}
+
+
+~~~
+Interactive mode .............................: pan                                                                           
+Functions found .............................................:                                                                
+Genomes storage .............................................: Initialized (storage hash: hash639a88c5)                       
+Num genomes in storage ......................................: 12
+Num genomes will be used ....................................: 12
+Pan DB ......................................................: Initialized: CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db (v. 15)
+Gene cluster homogeneity estimates ..........................: Functional: [YES]; Geometric: [YES]; Combined: [YES]
+                                                                                                                              
+* Gene clusters are initialized for all 4605 gene clusters in the database.
+
+                                                                                                                              
+WARNING
+==============================================================
+Genomes storage does not have any info about gene functions. Certain parts of
+the pangenomic workflow will not be accessible.
+
+                                                                                                                              
+WARNING
+==============================================================
+Genomes storage does not have any info about gene functions. Certain parts of
+the pangenomic workflow will not be accessible.
+
+
+WARNING
+==============================================================
+Someone asked anvi'o to initialize a gene cluster functions summary dict, but it
+seems there are no gene cluster functions even after initializing functions for
+the pangenome. So we move on without any summary dict for functions and/or drama
+about it to let the downstream analyses decide how to punish the unlucky.
+
+                                                                                                                              
+* The server is up and running 🎉
+
+WARNING
+===============================================
+If you are using OSX and if the server terminates prematurely before you can see
+anything in your browser, try running the same command by putting 'sudo ' at the
+beginning of it (you will be prompted to enter your password if sudo requires
+super user credentials on your system). If your browser does not show up, try
+manually entering the URL shown below into the address bar of your favorite
+browser. *cough* CHROME *cough*.
+
+
+Server address ...............................: http://0.0.0.0:8080
+
+* When you are ready, press CTRL+C once to terminate the server and go back to the
+command line.
+~~~
+{: .output}
+
