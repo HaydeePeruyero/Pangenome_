@@ -2182,6 +2182,89 @@ If you publish your findings, please do not forget to properly credit this tool.
 ~~~
 {: .output}
 
+
+~~~
+anvi-get-sequences-for-gene-clusters -p CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db \
+                                     -g CLAVIBACTER_GENOMES.db \
+                                     --min-num-genomes-gene-cluster-occurs 12 \
+                                     --max-num-genes-from-each-genome 1 \
+                                     --concatenate-gene-clusters \
+                                     --output-file CLAVIBACTER/Clavibacter-SCGs.fa
+~~~
+{: .language-bash}
+
+~~~
+Mode .........................................: Working with all gene clusters.                                               
+Functions found .............................................:                                                                
+Genomes storage .............................................: Initialized (storage hash: hash639a88c5)                       
+Num genomes in storage ......................................: 12
+Num genomes will be used ....................................: 12
+Pan DB ......................................................: Initialized: CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db (v. 15)
+Gene cluster homogeneity estimates ..........................: Functional: [YES]; Geometric: [YES]; Combined: [YES]
+                                                                                                                              
+* Gene clusters are initialized for all 4605 gene clusters in the database.
+
+                                                                                                                              
+GENE CLUSTER FILTERS
+==============================================================
+Based on --min-num-genomes-gene-cluster-occurs 12, --max-num-genomes-gene-
+cluster-occurs 12, --min-num-genes-from-each-genome 0, --max-num-genes-from-
+each-genome 1, --min-functional-homogeneity-index -1.000, --max-functional-
+homogeneity-index 1.000, --min-geometric-homogeneity-index -1.000, --max-
+geometric-homogeneity-index 1.000, --min-combined-homogeneity-index -1.000,
+--max-combined-homogeneity-index 1.000 (some of these may be default values, no
+need to panic).
+
+All gene clusters (4605) ....................................: GC_00000702, GC_00002539, GC_00002415, (... 4602 more
+                                                               (`--debug` will show all))
+Gene clusters that passed the filter (2116) .................: GC_00000702, GC_00002123, GC_00001747, (... 2113 more
+                                                               (`--debug` will show all))
+Genes clusters that failed the filter (2489) ................: GC_00002539, GC_00002415, GC_00004146, (... 2486 more
+                                                               (`--debug` will show all))
+
+
+INFO
+===============================================
+Your filters resulted in 2116 gene clusters that contain a total of 25392 genes.
+for downstream analyses. Just so you know.
+
+Sequence type ...............................................: Amino acid                                                     
+Output file for phylogenomics ...............................: CLAVIBACTER/Clavibacter-SCGs.fa
+~~~
+{: .output}
+
+
+
+~~~
+trimal -in CLAVIBATER/Clavibacter-SCGs.fa \
+       -out CLAVIBACTER/Clavibacter-SCGs-clean.fa \
+       -gt 0.50
+~~~
+{: .language-bash}
+
+
+~~~
+ERROR: Alignment not loaded: "CLAVIBATER/Clavibacter-SCGs.fa" Check the file's content.
+~~~
+{: .output}
+
+~~~
+iqtree -s CLAVIBATER/Clavibacter-SCGs.fa \
+       -nt 8 \
+       -m WAG \
+       -bb 1000
+~~~
+{: .language-bash}
+
+
+~~~
+Command 'iqtree' not found, but can be installed with:
+
+apt install iqtree
+Please ask your administrator.
+~~~
+{: .output}
+
 Paso 10:
 
 ~~~
@@ -2242,3 +2325,119 @@ command line.
 ~~~
 {: .output}
 
+
+Cuando se quiere correr el archivo del pangenoma hay que abrir en el servido: `http://132.248.196.38:8080` y dar click en Draw
+
+Paso 11:
+
+~~~
+anvi-get-sequences-for-gene-clusters -g CLAVIBACTER_GENOMES.db \
+                                     -p CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db \
+                                     -o FASTA
+~~~
+{: .language-bash}
+
+~~~
+Mode .........................................: Working with all gene clusters.                                               
+Functions found .............................................:                                                                
+Genomes storage .............................................: Initialized (storage hash: hash639a88c5)                       
+Num genomes in storage ......................................: 12
+Num genomes will be used ....................................: 12
+Pan DB ......................................................: Initialized: CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db (v. 15)
+Gene cluster homogeneity estimates ..........................: Functional: [YES]; Geometric: [YES]; Combined: [YES]
+                                                                                                                              
+* Gene clusters are initialized for all 4605 gene clusters in the database.
+
+                                                                                                                              
+GENE CLUSTER FILTERS
+==============================================================
+Based on --min-num-genomes-gene-cluster-occurs 0, --max-num-genomes-gene-
+cluster-occurs 12, --min-num-genes-from-each-genome 0, --max-num-genes-from-
+each-genome 12, --min-functional-homogeneity-index -1.000, --max-functional-
+homogeneity-index 1.000, --min-geometric-homogeneity-index -1.000, --max-
+geometric-homogeneity-index 1.000, --min-combined-homogeneity-index -1.000,
+--max-combined-homogeneity-index 1.000 (some of these may be default values, no
+need to panic).
+
+All gene clusters (4605) ....................................: GC_00000947, GC_00004289, GC_00003305, (... 4602 more
+                                                               (`--debug` will show all))
+Gene clusters that passed the filter (4603) .................: GC_00000947, GC_00004289, GC_00001635, (... 4600 more
+                                                               (`--debug` will show all))
+Genes clusters that failed the filter (2) ...................: GC_00000001, GC_00000002
+
+
+INFO
+===============================================
+Your filters resulted in 4603 gene clusters that contain a total of 55236 genes.
+for downstream analyses. Just so you know.
+
+Sequence type ...............................................: Amino acid                                                     
+Num sequences reported ......................................: 35,827
+Output FASTA file ...........................................: FASTA
+~~~
+{: .output}
+
+No funciona
+~~~
+anvi-get-sequences-for-gene-clusters -g CLAVIBACTER_GENOMES.db \
+                                     -p CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db \
+                                     -o FASTA \
+                                     --gene-cluster-ids-file
+                                     --gene-cluster-id GC_00000702
+                                                             
+~~~
+{: .language-bash}
+
+
+~~~
+anvi-compute-genome-similarity --external-genomes external-genomes.txt \
+                               --program fastANI \
+                               --output-dir ANI \
+                               --num-threads 10 \
+                               --pan-db CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db
+
+~~~
+{: .language-bash}
+
+
+~~~
+CITATION
+===============================================
+Anvi'o will use 'fastANI' by Jain et al. (DOI: 10.1038/s41467-018-07641-9) to
+compute ANI. If you publish your findings, please do not forget to properly
+credit their work.
+
+[fastANI] Kmer size ..........................: 16                                                                            
+[fastANI] Fragment length ....................: 3,000
+[fastANI] Min fraction of alignment ..........: 0.25
+[fastANI] Num threads to use .................: 10
+[fastANI] Log file path ......................: /tmp/tmp04wcmlyu
+
+                                                                                                                              
+ANI RESULTS
+===============================================
+* Matrix and clustering of 'ani' written to output directory
+* Matrix and clustering of 'alignment fraction' written to output directory
+* Matrix and clustering of 'mapping fragments' written to output directory
+* Matrix and clustering of 'total fragments' written to output directory
+
+MISC DATA MAGIC FOR YOUR PAN DB
+===============================================
+* Additional data and order for ANI ani are now in pan db                                                                     
+* Additional data and order for ANI alignment fraction are now in pan db                                                      
+* Additional data and order for ANI mapping fragments are now in pan db                                                       
+* Additional data and order for ANI total fragments are now in pan db                                                         
+
+✓ anvi-compute-genome-similarity took 0:00:11.708246
+~~~
+{: .output}
+
+
+~~~
+anvi-get-sequences-for-gene-clusters -p CLAVIBACTER/PANGENOME-CLAVIBACTER-PAN.db \
+                                       -g CLAVIBACTER_GENOMES.db \
+                                       -C collection -b Better_core \
+                                       --concatenate-gene-clusters \
+                                       -o better_core.fa
+~~~
+{: .language-bash}
